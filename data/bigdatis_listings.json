@@ -1,0 +1,401 @@
+[
+  {
+    "source": "Bigdatis",
+    "title": "« A vendre appartement s1 a ain zaghouan »",
+    "price": 215000.0,
+    "governorate": "Ain Zaghouan, Le Kram, Tunis",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 63,
+    "url": "https://bigdatis.tn/details/vente/ain-zaghouan/appartement/s1/u1248972/a-vendre-appartement-s1-a-ain-zaghouan",
+    "description": "Appartement S+1 à vendre à Ain Zaghouan",
+    "meta_title": "Appartement S+1 à vendre à Ain Zaghouan",
+    "labels": [
+      "S+1",
+      "63 m²",
+      "Particulier"
+    ],
+    "posted_at": "Il y a 53 min",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:27.387058+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appartement s1 haut standing à vendre à Nkhilette »",
+    "price": 198300.0,
+    "governorate": "Cité Ennkhilet, Raoued, Ariana",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 66,
+    "url": "https://bigdatis.tn/details/vente/cite-ennkhilet/appartement/s1/u1222976/appartement-s1-haut-standing-a-vendre-a-nkhilette",
+    "description": "Appartement S+1 à vendre à Cité Ennkhilet",
+    "meta_title": "Appartement S+1 à vendre à Cité Ennkhilet",
+    "labels": [
+      "S+1",
+      "66 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:27.572492+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appartement S2 de 98 m² à médina jadida »",
+    "price": 150000.0,
+    "governorate": "El Yasminette, Médina Jadida, Ben Arous",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 98,
+    "url": "https://bigdatis.tn/details/vente/el-yasminette/appartement/s2/u1207882/appartement-s2-de-98-m-a-medina-jadida",
+    "description": "Appartement S+2 à vendre à El Yasminette",
+    "meta_title": "Appartement S+2 à vendre à El Yasminette",
+    "labels": [
+      "S+2",
+      "98 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:27.751424+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appartement S2 a vendre »",
+    "price": 210000.0,
+    "governorate": "Chatt Meriem, Akouda, Sousse",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": null,
+    "url": "https://bigdatis.tn/details/vente/chatt-meriem/appartement/s2/u1106563/appartement-s2-a-vendre",
+    "description": "Appartement S+2 à vendre à Chatt Meriem",
+    "meta_title": "Appartement S+2 à vendre à Chatt Meriem",
+    "labels": [
+      "S+2",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:27.940846+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Gammarth A vendre un appar S3 au 1 étage »",
+    "price": null,
+    "governorate": "Route de Gammarth, La Marsa, Tunis",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 110,
+    "url": "https://bigdatis.tn/details/vente/route-de-gammarth/appartement/s3/u1094953/gammarth-a-vendre-un-appar-s3-au-1-etage",
+    "description": "Appartement S+3 à vendre à Route de Gammarth",
+    "meta_title": "Appartement S+3 à vendre à Route de Gammarth",
+    "labels": [
+      "S+3",
+      "110 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:28.086488+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« À Vendre – Superbe Appartement S3 à La Marsa »",
+    "price": 850000.0,
+    "governorate": "Marsa Ville, La Marsa, Tunis",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 130,
+    "url": "https://bigdatis.tn/details/vente/marsa-ville/appartement/s3/u1203037/a-vendre--superbe-appartement-s3-a-la-marsa",
+    "description": "Appartement S+3 à vendre à Marsa Ville",
+    "meta_title": "Appartement S+3 à vendre à Marsa Ville",
+    "labels": [
+      "S+3",
+      "130 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:28.257798+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Tecnocasa hammamet sud met en vente »",
+    "price": 360000.0,
+    "governorate": "Hammamet Sud, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 90,
+    "url": "https://bigdatis.tn/details/vente/hammamet-sud/appartement/s3/u1249415/tecnocasa-hammamet-sud-met-en-vente",
+    "description": "Appartement S+3 à vendre à Hammamet Sud",
+    "meta_title": "Appartement S+3 à vendre à Hammamet Sud",
+    "labels": [
+      "S+3",
+      "90 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:28.425462+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Tecnocasa hammamet sud met en vente »",
+    "price": 470000.0,
+    "governorate": "Hammamet Sud, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 130,
+    "url": "https://bigdatis.tn/details/vente/hammamet-sud/appartement/s3/u804714/tecnocasa-hammamet-sud-met-en-vente",
+    "description": "Appartement S+3 à vendre à Hammamet Sud",
+    "meta_title": "Appartement S+3 à vendre à Hammamet Sud",
+    "labels": [
+      "S+3",
+      "130 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:28.637700+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« S2 en vente »",
+    "price": 450000.0,
+    "governorate": "El Mrezga, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 131,
+    "url": "https://bigdatis.tn/details/vente/el-mrezga/appartement/s2/u1047059/s2-en-vente",
+    "description": "Appartement S+2 à vendre à El Mrezga",
+    "meta_title": "Appartement S+2 à vendre à El Mrezga",
+    "labels": [
+      "S+2",
+      "131 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:28.835129+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« À vendre: Appartement RDC avec jardin »",
+    "price": 600000.0,
+    "governorate": "Hammamet Sud, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 165,
+    "url": "https://bigdatis.tn/details/vente/hammamet-sud/appartement/s3/u1037617/a-vendre-appartement-rdc-avec-jardin",
+    "description": "Appartement S+3 à vendre à Hammamet Sud",
+    "meta_title": "Appartement S+3 à vendre à Hammamet Sud",
+    "labels": [
+      "S+3",
+      "165 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:28.999366+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appartement en vente, entièrement meublé »",
+    "price": 320000.0,
+    "governorate": "Hammamet Sud, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 77,
+    "url": "https://bigdatis.tn/details/vente/hammamet-sud/appartement/s1/u977816/appartement-en-vente-entierement-meuble",
+    "description": "Appartement S+1 à vendre à Hammamet Sud",
+    "meta_title": "Appartement S+1 à vendre à Hammamet Sud",
+    "labels": [
+      "S+1",
+      "77 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:29.151747+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« À vendre à hammamet sud »",
+    "price": 260000.0,
+    "governorate": "Hammamet Sud, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 73,
+    "url": "https://bigdatis.tn/details/vente/hammamet-sud/appartement/s1/u923210/a-vendre-a-hammamet-sud",
+    "description": "Appartement S+1 à vendre à Hammamet Sud",
+    "meta_title": "Appartement S+1 à vendre à Hammamet Sud",
+    "labels": [
+      "S+1",
+      "73 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:29.285164+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Exclusivement à hammamet sud »",
+    "price": 640000.0,
+    "governorate": "Hammamet Sud, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 180,
+    "url": "https://bigdatis.tn/details/vente/hammamet-sud/appartement/s2/u862641/exclusivement-a-hammamet-sud",
+    "description": "Appartement S+2 à vendre à Hammamet Sud",
+    "meta_title": "Appartement S+2 à vendre à Hammamet Sud",
+    "labels": [
+      "S+2",
+      "180 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:29.430167+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appartement Vente La Soukra Ariana Tunisie »",
+    "price": 502000.0,
+    "governorate": "La Soukra, La Soukra, Ariana",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 124,
+    "url": "https://bigdatis.tn/details/vente/la-soukra/appartement/s2/u1231619/appartement-vente-la-soukra-ariana-tunisie",
+    "description": "Appartement S+2 à vendre à La Soukra",
+    "meta_title": "Appartement S+2 à vendre à La Soukra",
+    "labels": [
+      "S+2",
+      "124 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:29.702923+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« A vendre Appartement S3 à Sahloul residence Ell wouroud »",
+    "price": 185000.0,
+    "governorate": "Sahloul 1, Sousse Jawhara, Sousse",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 100,
+    "url": "https://bigdatis.tn/details/vente/sahloul-1/appartement/s3/u1226520/a-vendre-appartement-s3-a-sahloul-residence-ell-wouroud",
+    "description": "Appartement S+3 à vendre à Sahloul 1",
+    "meta_title": "Appartement S+3 à vendre à Sahloul 1",
+    "labels": [
+      "S+3",
+      "100 m²",
+      "Particulier"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:30.060255+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« A vendre S1 à Sahloul Ghrabi »",
+    "price": 120000.0,
+    "governorate": "Sahloul 1, Sousse Jawhara, Sousse",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 60,
+    "url": "https://bigdatis.tn/details/vente/sahloul-1/appartement/s1/u930795/a-vendre-s1-a-sahloul-ghrabi",
+    "description": "Appartement S+1 à vendre à Sahloul 1",
+    "meta_title": "Appartement S+1 à vendre à Sahloul 1",
+    "labels": [
+      "S+1",
+      "60 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:30.388604+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appart S4 Bella à Vendre à Ariana »",
+    "price": 390000.0,
+    "governorate": "Ariana Centre, Ariana Ville, Ariana",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 115,
+    "url": "https://bigdatis.tn/details/vente/ariana-centre/appartement/s4/u760666/appart-s4-bella-a-vendre-a-ariana",
+    "description": "Appartement S+4 à vendre à Ariana Centre",
+    "meta_title": "Appartement S+4 à vendre à Ariana Centre",
+    "labels": [
+      "S+4",
+      "115 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:30.612557+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« Appartement S2 à La Soukra »",
+    "price": 298000.0,
+    "governorate": "La Soukra, La Soukra, Ariana",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 105,
+    "url": "https://bigdatis.tn/details/vente/la-soukra/appartement/s2/u753599/appartement-s2-a-la-soukra",
+    "description": "Appartement S+2 à vendre à La Soukra",
+    "meta_title": "Appartement S+2 à vendre à La Soukra",
+    "labels": [
+      "S+2",
+      "105 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:30.818088+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« S1 en vente »",
+    "price": 215000.0,
+    "governorate": "El Mrezga, Hammamet, Nabeul",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 72,
+    "url": "https://bigdatis.tn/details/vente/el-mrezga/appartement/s1/u1199021/s1-en-vente",
+    "description": "Appartement S+1 à vendre à El Mrezga",
+    "meta_title": "Appartement S+1 à vendre à El Mrezga",
+    "labels": [
+      "S+1",
+      "72 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:31.041812+00:00"
+  },
+  {
+    "source": "Bigdatis",
+    "title": "« S3 à vendre à l'Aouina Palmerais »",
+    "price": 365000.0,
+    "governorate": "L'Aouina Cité des Palmeraies, La Marsa, Tunis",
+    "city": null,
+    "property_type": "Appartement",
+    "surface_area": 174,
+    "url": "https://bigdatis.tn/details/vente/laouina-cite-des-palmeraies/appartement/s3/u1186144/s3-a-vendre-a-laouina-palmerais",
+    "description": "Appartement S+3 à vendre à L'Aouina Cité des Palmeraies",
+    "meta_title": "Appartement S+3 à vendre à L'Aouina Cité des Palmeraies",
+    "labels": [
+      "S+3",
+      "174 m²",
+      "Agence"
+    ],
+    "posted_at": "Il y a 1 heure",
+    "page": 1,
+    "scraped_at": "2026-02-19T22:07:31.288724+00:00"
+  }
+]

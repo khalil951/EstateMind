@@ -1,0 +1,14 @@
+﻿requests
+beautifulsoup4
+playwright
+pytest
+pandas
+scikit-learn
+matplotlib
+seaborn
+numpy
+fastapi
+uvicorn
+streamlit
+plotly
+pillow
