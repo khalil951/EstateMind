@@ -1,0 +1,141 @@
+{
+  "inputs": {
+    "reviews_txt": "data\\nlp\\real_estate_synthesized_reviews.txt",
+    "reviews_metadata_csv": "data\\nlp\\real_estate_reviews_metadata.csv",
+    "listings_csv": "data\\csv\\preprocessed\\final_listings_preprocessed.csv",
+    "description_column": "description",
+    "price_column": "price_tnd"
+  },
+  "outputs": {
+    "model1_descriptions_all_csv": "data\\nlp\\prepared\\model1_descriptions_all.csv",
+    "model1_price_labeled_csv": "data\\nlp\\prepared\\model1_price_labeled.csv",
+    "model1_train_csv": "data\\nlp\\prepared\\model1_train.csv",
+    "model1_val_csv": "data\\nlp\\prepared\\model1_val.csv",
+    "model1_test_csv": "data\\nlp\\prepared\\model1_test.csv",
+    "model2_reviews_labeled_csv": "data\\nlp\\prepared\\model2_reviews_labeled.csv",
+    "model2_train_csv": "data\\nlp\\prepared\\model2_train.csv",
+    "model2_val_csv": "data\\nlp\\prepared\\model2_val.csv",
+    "model2_test_csv": "data\\nlp\\prepared\\model2_test.csv",
+    "model2_synthetic_reviews_csv": "data\\nlp\\prepared\\model2_synthetic_reviews.csv",
+    "model2_sentiment_pipeline_sample_csv": "data\\nlp\\prepared\\model2_sentiment_pipeline_sample.csv",
+    "report_json": "data\\nlp\\prepared\\prep_report.json"
+  },
+  "config": {
+    "lowercase": true,
+    "min_tokens_model1": 5,
+    "min_tokens_model2": 3,
+    "sentiment_model": "cardiffnlp/twitter-xlm-roberta-base-sentiment",
+    "neutral_threshold": 0.6,
+    "sentiment_batch_size": 32,
+    "sentiment_sample_size": 0,
+    "target_model2_groups_per_class": 120,
+    "split": {
+      "train": 0.8,
+      "val": 0.1,
+      "test": 0.1
+    },
+    "seed": 42
+  },
+  "counts": {
+    "model1": {
+      "all_rows": 4018,
+      "labeled_rows": 4018,
+      "train_rows": 3214,
+      "val_rows": 401,
+      "test_rows": 403,
+      "source_distribution": {
+        "listings_csv_description": 4018
+      }
+    },
+    "model2": {
+      "all_rows": 1560,
+      "unique_clean_text": 384,
+      "unique_groups": 384,
+      "groups_per_class": {
+        "positive": 128,
+        "negative": 128,
+        "neutral": 128
+      },
+      "train_rows": 1217,
+      "val_rows": 159,
+      "test_rows": 184,
+      "source_distribution": {
+        "reviews_metadata_csv": 1200,
+        "synthetic_template_generator": 360
+      },
+      "label_source_distribution": {
+        "metadata_label": 1200,
+        "synthetic_template_label": 360
+      },
+      "sentiment_distribution": {
+        "positive": 616,
+        "neutral": 506,
+        "negative": 438
+      },
+      "language_distribution": {
+        "fr": 792,
+        "en": 768
+      },
+      "splits": {
+        "train": {
+          "rows": 1217,
+          "label_distribution": {
+            "positive": 462,
+            "negative": 411,
+            "neutral": 344
+          },
+          "language_distribution": {
+            "fr": 645,
+            "en": 572
+          },
+          "unique_groups": 303
+        },
+        "val": {
+          "rows": 159,
+          "label_distribution": {
+            "positive": 86,
+            "neutral": 59,
+            "negative": 14
+          },
+          "language_distribution": {
+            "en": 137,
+            "fr": 22
+          },
+          "unique_groups": 42
+        },
+        "test": {
+          "rows": 184,
+          "label_distribution": {
+            "neutral": 103,
+            "positive": 68,
+            "negative": 13
+          },
+          "language_distribution": {
+            "fr": 125,
+            "en": 59
+          },
+          "unique_groups": 39
+        }
+      },
+      "group_leakage": {
+        "train_val_overlap": 0,
+        "train_test_overlap": 0,
+        "val_test_overlap": 0,
+        "covered_groups": 384,
+        "all_groups": 384
+      },
+      "synthesis": {
+        "target_groups_per_class": 120,
+        "generated_rows_csv": "data\\nlp\\prepared\\model2_synthetic_reviews.csv",
+        "generated_rows": 360,
+        "incorporated_rows": 360
+      },
+      "pipeline_sample": {
+        "enabled": false,
+        "rows_written": 0,
+        "output_csv": "data\\nlp\\prepared\\model2_sentiment_pipeline_sample.csv",
+        "status": "not_run"
+      }
+    }
+  }
+}

@@ -1,0 +1,1201 @@
+review_id,city,language,sentiment,review_text
+1,Manar,English,Negative,Administrative and legal procedures lack transparency.
+2,Lac 2,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+3,Mezzraya,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+4,El Menzah 1,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+5,Tunis Belvedere,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+6,Cite Ennkhilet,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+7,Boumhel,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+8,Les Jardins El Menzah 2,English,Neutral,Stable environment with balanced supply and demand.
+9,Ariana,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+10,Hergla,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+11,La Marsa,English,Negative,Administrative and legal procedures lack transparency.
+12,Mornag,English,Negative,Administrative and legal procedures lack transparency.
+13,Route Soukra,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+14,Denden,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+15,Ariana Essoughra,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+16,Bab Souika,English,Negative,Administrative and legal procedures lack transparency.
+17,Le Bardo,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+18,La Marsa,English,Neutral,Stable environment with balanced supply and demand.
+19,El Omrane Suprieur,English,Positive,"Secure residential area close to schools, shops, and transport."
+20,Mornaguia,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+21,La Soukra,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+22,Centre Ville Lafayette,English,Positive,High rental yield with increasing neighborhood attractiveness.
+23,Kef Est,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+24,Kairouan,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+25,Kala Kebira,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+26,Autres Villes,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+27,Khzema,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+28,El Menzah 4,English,Negative,Administrative and legal procedures lack transparency.
+29,Le kef,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+30,Mdenine Sud,French,Negative,Procédures administratives et juridiques manquant de transparence.
+31,El Mourouj 5,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+32,Mrezga,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+33,Mohamedia,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+34,Kairouan,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+35,El Mourouj 1,English,Positive,High rental yield with increasing neighborhood attractiveness.
+36,Lac 2,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+37,Sousse,English,Negative,Overpriced compared to similar listings in nearby districts.
+38,L Aouina,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+39,Hammamet,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+40,Jardins El Menzah,French,Negative,Procédures administratives et juridiques manquant de transparence.
+41,Lac 2,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+42,Ettahrir,English,Positive,"Secure residential area close to schools, shops, and transport."
+43,Lac 2,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+44,Chotrana 2,English,Negative,Market data inconsistency makes valuation difficult.
+45,Soliman,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+46,Sfax Ville,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+47,Kébili,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+48,Mrezga,English,Negative,Market data inconsistency makes valuation difficult.
+49,Chatt Mariem,English,Negative,Market data inconsistency makes valuation difficult.
+50,Nouvelle Medina,English,Negative,Market data inconsistency makes valuation difficult.
+51,Menzel Jemil,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+52,Chotrana 1,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+53,Hammamet,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+54,Chotrana 3,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+55,Klibia,English,Neutral,Average residential zone with moderate demand and stable pricing.
+56,Carthage,French,Negative,Procédures administratives et juridiques manquant de transparence.
+57,El Mourouj 5,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+58,El Menzah 8,English,Positive,High rental yield with increasing neighborhood attractiveness.
+59,Douar Hicher,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+60,Bizerte Nord,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+61,Tataouine,English,Negative,Overpriced compared to similar listings in nearby districts.
+62,Sousse Ville,English,Neutral,Stable environment with balanced supply and demand.
+63,Nabeul,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+64,Nabeul,English,Positive,High rental yield with increasing neighborhood attractiveness.
+65,Ain Zaghouen,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+66,Ezzouhour,English,Positive,High rental yield with increasing neighborhood attractiveness.
+67,Ezzouhour,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+68,La Marsa,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+69,Agba,English,Positive,"Secure residential area close to schools, shops, and transport."
+70,Fouchana,English,Neutral,Stable environment with balanced supply and demand.
+71,Ariana,English,Neutral,Average residential zone with moderate demand and stable pricing.
+72,Tunis Belvedere,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+73,El Menzah 7,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+74,Mgrine,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+75,Cit Ennasr 2,English,Neutral,Average residential zone with moderate demand and stable pricing.
+76,Jardins De Carthage,English,Negative,Market data inconsistency makes valuation difficult.
+77,Centre Urbain Nord,English,Negative,Market data inconsistency makes valuation difficult.
+78,Ariana Ville,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+79,Sakiet Ezzit,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+80,Béja,English,Negative,Administrative and legal procedures lack transparency.
+81,Agba,English,Neutral,Prices reflect current market conditions without significant growth.
+82,El Omrane,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+83,El Omrane Suprieur,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+84,Monastir,English,Neutral,Average residential zone with moderate demand and stable pricing.
+85,Hammam Sousse,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+86,La Goulette,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+87,Ezzahra,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+88,Hammamet,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+89,Hammamet Centre,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+90,Lac 2,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+91,Kélibia,English,Positive,High rental yield with increasing neighborhood attractiveness.
+92,Tunis,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+93,Nabeul,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+94,Ezzouhour,English,Neutral,Prices reflect current market conditions without significant growth.
+95,Kairouan,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+96,Bizerte,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+97,Cite Ennkhilet,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+98,Sousse,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+99,Ghazela,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+100,Sousse Jawhara,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+101,El Mourouj 1,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+102,Sidi Daoud,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+103,Khzema,English,Negative,Overpriced compared to similar listings in nearby districts.
+104,Chatt Mariem,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+105,Jardins De Carthage,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+106,Mdenine Sud,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+107,Ariana Essoughra,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+108,Grand Tunis,English,Positive,"Secure residential area close to schools, shops, and transport."
+109,Sidi El Bchir,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+110,Hammam Sousse,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+111,Ariana Ville,French,Negative,Procédures administratives et juridiques manquant de transparence.
+112,Mohamedia,English,Positive,"Secure residential area close to schools, shops, and transport."
+113,Kantaoui,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+114,Route Tunis,English,Positive,"Secure residential area close to schools, shops, and transport."
+115,Mohamedia,English,Neutral,Prices reflect current market conditions without significant growth.
+116,Kala Kebira,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+117,Siliana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+118,Djedeida,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+119,Yasmine Hammamet,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+120,Hammamet,English,Neutral,Average residential zone with moderate demand and stable pricing.
+121,Mutuelleville,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+122,Sousse Jaouhara,French,Negative,Procédures administratives et juridiques manquant de transparence.
+123,Boumhel,English,Neutral,Stable environment with balanced supply and demand.
+124,El Mourouj 6,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+125,Cit El Khadra,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+126,Route Manzel Chaker,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+127,Chotrana 3,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+128,Route Sokra,English,Neutral,Average residential zone with moderate demand and stable pricing.
+129,Rades,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+130,Route El Ain,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+131,Bizerte,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+132,Gabs Mdina,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+133,Kantaoui,English,Positive,"Secure residential area close to schools, shops, and transport."
+134,Sousse Jawhara,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+135,Yasmine Hammamet,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+136,Sousse Mdina,English,Positive,High rental yield with increasing neighborhood attractiveness.
+137,Sousse Corniche,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+138,Ariana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+139,Ariana,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+140,Gammarth,French,Negative,Procédures administratives et juridiques manquant de transparence.
+141,Kélibia,English,Positive,"Secure residential area close to schools, shops, and transport."
+142,Hammam Chott,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+143,Ariana,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+144,La Goulette,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+145,Monfleury,English,Neutral,Average residential zone with moderate demand and stable pricing.
+146,Route Taniour,English,Positive,High rental yield with increasing neighborhood attractiveness.
+147,Chotrana,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+148,Khaznadar,English,Positive,"Secure residential area close to schools, shops, and transport."
+149,Raoued,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+150,Route Sokra,English,Negative,Overpriced compared to similar listings in nearby districts.
+151,Ezzouhour,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+152,Kala Kebira,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+153,Menzel Jemil,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+154,Ariana,English,Neutral,Stable environment with balanced supply and demand.
+155,Sousse Jawhara,English,Negative,Administrative and legal procedures lack transparency.
+156,Tataouine,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+157,Grand Tunis,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+158,Route Mharza,English,Positive,High rental yield with increasing neighborhood attractiveness.
+159,El Menzah 4,English,Negative,Market data inconsistency makes valuation difficult.
+160,Lac 2,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+161,Ghar El Melh,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+162,Rads,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+163,Le Bardo,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+164,La Marsa,English,Positive,"Secure residential area close to schools, shops, and transport."
+165,Mornag,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+166,El Menzah,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+167,Manar,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+168,Mahdia,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+169,Djerba Midoun,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+170,Mohamadia,English,Positive,"Secure residential area close to schools, shops, and transport."
+171,Monastir,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+172,Rads,English,Negative,Market data inconsistency makes valuation difficult.
+173,Cite Ennkhilet,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+174,Sousse Mdina,English,Positive,High rental yield with increasing neighborhood attractiveness.
+175,Hammamet,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+176,El Omrane Suprieur,English,Neutral,Average residential zone with moderate demand and stable pricing.
+177,Route Taniour,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+178,Cit Ennasr 2,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+179,Sidi Bou Said,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+180,Manar,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+181,Ezzahra,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+182,Chotrana,English,Positive,"Secure residential area close to schools, shops, and transport."
+183,Gabès,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+184,Béja,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+185,El Menzah 6,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+186,Klibia,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+187,Mahdia,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+188,Route Taniour,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+189,El Manar 2,English,Neutral,Prices reflect current market conditions without significant growth.
+190,Monfleury,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+191,Tunis,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+192,Sidi Daoud,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+193,Chatt Mariem,English,Neutral,Stable environment with balanced supply and demand.
+194,Hergla,English,Neutral,Average residential zone with moderate demand and stable pricing.
+195,Médenine,English,Negative,Administrative and legal procedures lack transparency.
+196,Bab Bhar,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+197,Nabeul,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+198,Route Manzel Chaker,English,Neutral,Prices reflect current market conditions without significant growth.
+199,La Soukra,French,Negative,Procédures administratives et juridiques manquant de transparence.
+200,Cit Hedi Nouira,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+201,Route El Afrane,English,Negative,Overpriced compared to similar listings in nearby districts.
+202,Sfax,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+203,Kairouan,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+204,Ain Zaghouan Nord,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+205,Ksar Said,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+206,Tunis,English,Neutral,Prices reflect current market conditions without significant growth.
+207,Bab Bhar,English,Positive,"Secure residential area close to schools, shops, and transport."
+208,Route Soukra,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+209,Sfax,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+210,Ariana Ville,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+211,Mgrine,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+212,Médenine,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+213,Dar Fadhal,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+214,Mutuelleville,English,Neutral,Prices reflect current market conditions without significant growth.
+215,Lac 2,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+216,Mohamadia,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+217,Sfax,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+218,La Marsa,English,Negative,Market data inconsistency makes valuation difficult.
+219,Kantaoui,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+220,Les Jardins El Menzah 1,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+221,Sousse Jaouhara,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+222,Bizerte Nord,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+223,Hammamet,English,Neutral,Stable environment with balanced supply and demand.
+224,La Soukra,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+225,Nabeul,English,Negative,Overpriced compared to similar listings in nearby districts.
+226,Les Jardins El Menzah 1,English,Neutral,Prices reflect current market conditions without significant growth.
+227,Borj Louzir,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+228,Cit Jardin,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+229,Ksar Said,English,Negative,Administrative and legal procedures lack transparency.
+230,Sfax,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+231,El Menzah 1,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+232,Sidi Bouzid,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+233,Ksar Said,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+234,Manouba Ville,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+235,Hammamet Centre,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+236,Tunis,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+237,Sfax,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+238,Route Mehdia,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+239,Jendouba,English,Neutral,Prices reflect current market conditions without significant growth.
+240,Jardins El Menzah,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+241,El Ouardia,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+242,Sousse Corniche,English,Positive,"Secure residential area close to schools, shops, and transport."
+243,Ariana,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+244,Sidi Hassine,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+245,Ettahrir,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+246,La Manouba,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+247,Centre Urbain Nord,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+248,Ras Jebel,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+249,Le kef,English,Negative,Market data inconsistency makes valuation difficult.
+250,Mgrine,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+251,Route Soukra,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+252,Sfax,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+253,Sfax Mdina,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+254,Sfax,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+255,Mgrine,English,Negative,Overpriced compared to similar listings in nearby districts.
+256,Djedeida,English,Positive,High rental yield with increasing neighborhood attractiveness.
+257,Ariana,English,Neutral,Average residential zone with moderate demand and stable pricing.
+258,Lac 2,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+259,Sidi El Bchir,English,Positive,"Secure residential area close to schools, shops, and transport."
+260,Sousse Jaouhara,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+261,Ariana Ville,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+262,Sousse Ville,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+263,Mornag,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+264,Sahloul,French,Negative,Procédures administratives et juridiques manquant de transparence.
+265,El Mourouj,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+266,Rads,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+267,Mezzraya,English,Negative,Administrative and legal procedures lack transparency.
+268,Mohamedia,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+269,El Menzah 9,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+270,Mohamedia,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+271,Kef Est,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+272,Lac 2,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+273,Mdina,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+274,Kef Est,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+275,Hammamet,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+276,Route El Ain,English,Positive,High rental yield with increasing neighborhood attractiveness.
+277,Autres Villes,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+278,Chotrana 1,English,Neutral,Stable environment with balanced supply and demand.
+279,Khzema,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+280,Sfax Ville,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+281,Bab Souika,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+282,El Mourouj 3,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+283,Tunis,English,Negative,Market data inconsistency makes valuation difficult.
+284,Sfax Mdina,English,Neutral,Stable environment with balanced supply and demand.
+285,Jardins El Menzah,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+286,El Mourouj,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+287,Khzema,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+288,Mdenine Sud,English,Neutral,Stable environment with balanced supply and demand.
+289,Sfax,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+290,Djerba,English,Neutral,Stable environment with balanced supply and demand.
+291,Nabeul,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+292,Tunis,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+293,Fouchana,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+294,Hammamet Nord,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+295,Gammarth,English,Negative,Overpriced compared to similar listings in nearby districts.
+296,Nouvelle Ariana,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+297,Ariana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+298,Kélibia,French,Negative,Procédures administratives et juridiques manquant de transparence.
+299,Yasmine Hammamet,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+300,Ain Zaghouen,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+301,Ksar Said,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+302,Agba,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+303,Mdenine Sud,English,Negative,Market data inconsistency makes valuation difficult.
+304,Gabs Mdina,English,Positive,"Secure residential area close to schools, shops, and transport."
+305,Hraria,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+306,Sousse,English,Positive,"Secure residential area close to schools, shops, and transport."
+307,Ariana Essoughra,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+308,Kala Kebira,English,Positive,High rental yield with increasing neighborhood attractiveness.
+309,Medina Jedida,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+310,Nabeul,English,Neutral,Stable environment with balanced supply and demand.
+311,Gafsa,English,Negative,Overpriced compared to similar listings in nearby districts.
+312,Tunis,English,Positive,High rental yield with increasing neighborhood attractiveness.
+313,Sousse Jaouhara,English,Positive,"Secure residential area close to schools, shops, and transport."
+314,El Mourouj 4,French,Negative,Procédures administratives et juridiques manquant de transparence.
+315,Sakiet Ezzit,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+316,La Marsa,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+317,Ezzahra,English,Positive,High rental yield with increasing neighborhood attractiveness.
+318,Douar Hicher,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+319,Les Jardins El Menzah 2,English,Neutral,Average residential zone with moderate demand and stable pricing.
+320,Sousse,English,Negative,Administrative and legal procedures lack transparency.
+321,Jardins De Carthage,English,Positive,High rental yield with increasing neighborhood attractiveness.
+322,Sidi Bouzid,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+323,Ezzahra,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+324,Ain Zaghouan Nord,English,Negative,Administrative and legal procedures lack transparency.
+325,Mnihla,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+326,Tozeur,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+327,Kantaoui,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+328,Sfax,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+329,Route Sokra,English,Positive,High rental yield with increasing neighborhood attractiveness.
+330,Kef Est,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+331,Ettahrir,English,Positive,"Secure residential area close to schools, shops, and transport."
+332,Route Tunis,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+333,Boumhel Bassatine,English,Negative,Market data inconsistency makes valuation difficult.
+334,Nabeul,English,Positive,High rental yield with increasing neighborhood attractiveness.
+335,L Aouina,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+336,El Omrane,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+337,Ariana,English,Positive,"Secure residential area close to schools, shops, and transport."
+338,Monfleury,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+339,Zaghouan,English,Neutral,Prices reflect current market conditions without significant growth.
+340,Manouba Ville,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+341,Sousse,English,Negative,Overpriced compared to similar listings in nearby districts.
+342,Autres Villes,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+343,Ettahrir,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+344,Sousse Riadh,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+345,La Goulette,French,Negative,Procédures administratives et juridiques manquant de transparence.
+346,Chotrana 2,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+347,Hammamet Centre,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+348,Hammam Lif,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+349,Lac 2,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+350,Akouda,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+351,Nabeul,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+352,Mornag,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+353,Le kef,French,Negative,Procédures administratives et juridiques manquant de transparence.
+354,Hraria,English,Neutral,Average residential zone with moderate demand and stable pricing.
+355,Ariana,English,Negative,Administrative and legal procedures lack transparency.
+356,Kairouan,English,Negative,Administrative and legal procedures lack transparency.
+357,El Menzah 1,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+358,Mornag,English,Negative,Market data inconsistency makes valuation difficult.
+359,Sousse Jaouhara,English,Negative,Administrative and legal procedures lack transparency.
+360,Bab Bhar,English,Neutral,Prices reflect current market conditions without significant growth.
+361,El Ouardia,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+362,Cit Olympique,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+363,La Marsa,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+364,El Menzah 5,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+365,Lac 2,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+366,Sfax Ville,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+367,Tunis,English,Negative,Market data inconsistency makes valuation difficult.
+368,Mgrine,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+369,Yasmine Hammamet,English,Negative,Market data inconsistency makes valuation difficult.
+370,Grand Tunis,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+371,Gabs Sud,English,Negative,Overpriced compared to similar listings in nearby districts.
+372,Tunis,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+373,Ariana,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+374,Jardins El Menzah,English,Positive,"Secure residential area close to schools, shops, and transport."
+375,Centre Ville Lafayette,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+376,Mutuelleville,English,Neutral,Prices reflect current market conditions without significant growth.
+377,Mrezga,French,Negative,Procédures administratives et juridiques manquant de transparence.
+378,Kairouan Ville,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+379,Lac 2,English,Positive,High rental yield with increasing neighborhood attractiveness.
+380,Jardins El Menzah,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+381,Hammam Sousse,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+382,Sfax,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+383,El Menzah 4,English,Neutral,Prices reflect current market conditions without significant growth.
+384,Gammarth,English,Positive,High rental yield with increasing neighborhood attractiveness.
+385,Hammamet Nord,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+386,La Marsa,English,Negative,Overpriced compared to similar listings in nearby districts.
+387,Hammam Chott,English,Neutral,Prices reflect current market conditions without significant growth.
+388,Denden,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+389,Monastir,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+390,Sfax,English,Positive,High rental yield with increasing neighborhood attractiveness.
+391,Rads,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+392,Khaznadar,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+393,Kantaoui,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+394,Hammamet Centre,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+395,Tunis,English,Positive,High rental yield with increasing neighborhood attractiveness.
+396,Akouda,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+397,El Mourouj,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+398,Jardins El Menzah,English,Negative,Overpriced compared to similar listings in nearby districts.
+399,Tunis,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+400,Sfax,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+401,Rades,English,Positive,High rental yield with increasing neighborhood attractiveness.
+402,Kairouan,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+403,El Manar 1,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+404,Denden,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+405,Chotrana 1,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+406,Hammamet Centre,English,Negative,Administrative and legal procedures lack transparency.
+407,Sousse,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+408,El Manar 2,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+409,Ariana,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+410,Menzah,English,Positive,High rental yield with increasing neighborhood attractiveness.
+411,Tataouine,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+412,Jardins El Menzah,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+413,Centre Urbain Nord,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+414,Riadh Andalous,English,Positive,High rental yield with increasing neighborhood attractiveness.
+415,Mornag,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+416,Mohamadia,English,Negative,Overpriced compared to similar listings in nearby districts.
+417,Médenine,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+418,Hraria,English,Positive,"Secure residential area close to schools, shops, and transport."
+419,Mohamadia,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+420,Monastir,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+421,Cit Ennasr 2,English,Neutral,Average residential zone with moderate demand and stable pricing.
+422,Lac 1,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+423,Hammamet Centre,English,Negative,Overpriced compared to similar listings in nearby districts.
+424,Lac 2,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+425,Sousse Jaouhara,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+426,Ariana,English,Positive,"Secure residential area close to schools, shops, and transport."
+427,Centre Urbain Nord,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+428,Kantaoui,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+429,Bizerte,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+430,Nabeul,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+431,Borj Louzir,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+432,Siliana,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+433,Sousse,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+434,Sfax,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+435,Sfax,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+436,El Mourouj,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+437,Ennasr,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+438,Hammamet,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+439,Médenine,English,Negative,Overpriced compared to similar listings in nearby districts.
+440,Sousse Ville,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+441,Autres Villes,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+442,Bizerte Nord,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+443,Sousse,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+444,Ghazela,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+445,Medina Jedida,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+446,Ettahrir,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+447,Hammamet,English,Positive,"Secure residential area close to schools, shops, and transport."
+448,Route Mharza,English,Positive,"Secure residential area close to schools, shops, and transport."
+449,Charguia 2,English,Negative,Administrative and legal procedures lack transparency.
+450,Ariana Essoughra,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+451,Route Gremda,English,Neutral,Average residential zone with moderate demand and stable pricing.
+452,Route El Afrane,English,Neutral,Prices reflect current market conditions without significant growth.
+453,Rads,English,Positive,High rental yield with increasing neighborhood attractiveness.
+454,Sousse,French,Negative,Procédures administratives et juridiques manquant de transparence.
+455,Route El Afrane,English,Neutral,Average residential zone with moderate demand and stable pricing.
+456,Thyna,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+457,La Marsa,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+458,Khzema,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+459,El Menzah 8,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+460,Sousse,English,Neutral,Prices reflect current market conditions without significant growth.
+461,Route De Laroport,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+462,El Menzah 1,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+463,Lac 2,English,Negative,Overpriced compared to similar listings in nearby districts.
+464,Route De Laroport,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+465,Les Jardins El Menzah 1,English,Negative,Administrative and legal procedures lack transparency.
+466,El Omrane,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+467,Kef Est,English,Positive,"Secure residential area close to schools, shops, and transport."
+468,Kairouan,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+469,Sousse,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+470,Ariana,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+471,Mnihla,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+472,Lac 2,English,Neutral,Stable environment with balanced supply and demand.
+473,Tozeur,English,Positive,"Secure residential area close to schools, shops, and transport."
+474,Nabeul,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+475,Hammamet Centre,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+476,Route Mharza,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+477,Ariana,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+478,Tunis Belvedere,English,Neutral,Stable environment with balanced supply and demand.
+479,El Manar 2,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+480,Hammam Lif,English,Neutral,Stable environment with balanced supply and demand.
+481,Sidi Hassine,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+482,Cit El Khadra,English,Negative,Market data inconsistency makes valuation difficult.
+483,Les Jardins El Menzah 2,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+484,Ariana,French,Negative,Procédures administratives et juridiques manquant de transparence.
+485,El Menzah 7,English,Negative,Overpriced compared to similar listings in nearby districts.
+486,Kairouan Ville,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+487,Kasserine,English,Neutral,Stable environment with balanced supply and demand.
+488,Sidi Bou Said,English,Positive,"Secure residential area close to schools, shops, and transport."
+489,Tunis Belvedere,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+490,El Menzah 7,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+491,Denden,English,Neutral,Average residential zone with moderate demand and stable pricing.
+492,Hammam Sousse,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+493,La Marsa,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+494,El Mourouj 4,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+495,Gammarth,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+496,Akouda,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+497,L Aouina,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+498,El Omrane,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+499,El Menzah 8,English,Positive,High rental yield with increasing neighborhood attractiveness.
+500,Hammamet,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+501,Sahloul,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+502,Menzel Jemil,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+503,Carthage,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+504,Mohamedia,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+505,Sidi Daoud,English,Neutral,Prices reflect current market conditions without significant growth.
+506,Sfax,English,Neutral,Average residential zone with moderate demand and stable pricing.
+507,El Omrane,French,Negative,Procédures administratives et juridiques manquant de transparence.
+508,Nouvelle Ariana,French,Negative,Procédures administratives et juridiques manquant de transparence.
+509,Chotrana 2,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+510,Cit El Khadra,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+511,Sousse Corniche,English,Neutral,Prices reflect current market conditions without significant growth.
+512,Moknine,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+513,Sidi Daoud,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+514,Khzema,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+515,Route El Ain,English,Neutral,Stable environment with balanced supply and demand.
+516,Gabès,French,Negative,Procédures administratives et juridiques manquant de transparence.
+517,Manar,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+518,Centre Ville Lafayette,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+519,Gabs Sud,English,Negative,Administrative and legal procedures lack transparency.
+520,Kala Kebira,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+521,Autres Villes,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+522,Chatt Mariem,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+523,Khaznadar,English,Neutral,Prices reflect current market conditions without significant growth.
+524,Autres Villes,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+525,Sousse,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+526,Lac 2,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+527,Tunis,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+528,Béja,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+529,El Omrane,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+530,Mohamadia,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+531,Medina Jedida,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+532,Cit El Khadra,French,Negative,Procédures administratives et juridiques manquant de transparence.
+533,Bab Bhar,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+534,Ariana,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+535,La Marsa,English,Negative,Overpriced compared to similar listings in nearby districts.
+536,Cit Jardin,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+537,Route El Ain,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+538,L Aouina,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+539,Lac 1,French,Negative,Procédures administratives et juridiques manquant de transparence.
+540,El Menzah 1,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+541,Mgrine,English,Neutral,Average residential zone with moderate demand and stable pricing.
+542,Djerba Midoun,English,Negative,Administrative and legal procedures lack transparency.
+543,El Manar 1,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+544,El Ouardia,English,Negative,Market data inconsistency makes valuation difficult.
+545,Sousse,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+546,Gabs Sud,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+547,Ain Zaghouan Sud,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+548,Ain Zaghouan Sud,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+549,Cite Ennkhilet,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+550,Route Manzel Chaker,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+551,Route Gremda,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+552,El Mourouj 5,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+553,Sidi El Bchir,English,Positive,"Secure residential area close to schools, shops, and transport."
+554,La Marsa,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+555,Hergla,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+556,Cit Hedi Nouira,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+557,El Menzah 7,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+558,Sidi Bou Said,English,Negative,Market data inconsistency makes valuation difficult.
+559,Klibia,English,Negative,Overpriced compared to similar listings in nearby districts.
+560,Kef Est,English,Positive,High rental yield with increasing neighborhood attractiveness.
+561,El Mourouj 4,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+562,Route Mehdia,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+563,Sousse Corniche,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+564,Hergla,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+565,El Manar 2,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+566,Sfax,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+567,Sfax Ville,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+568,Route El Ain,English,Negative,Overpriced compared to similar listings in nearby districts.
+569,Sfax,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+570,Lac 2,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+571,El Menzah 5,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+572,Mutuelleville,English,Positive,"Secure residential area close to schools, shops, and transport."
+573,Kébili,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+574,Borj Louzir,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+575,Yasmine Hammamet,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+576,Kala Kebira,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+577,Charguia 2,English,Positive,High rental yield with increasing neighborhood attractiveness.
+578,El Menzah 6,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+579,Route Mehdia,English,Neutral,Stable environment with balanced supply and demand.
+580,El Manar 1,English,Neutral,Stable environment with balanced supply and demand.
+581,Tunis,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+582,Hergla,English,Negative,Administrative and legal procedures lack transparency.
+583,El Manar 2,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+584,Tunis Belvedere,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+585,Boumhel,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+586,Sousse,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+587,Sidi Daoud,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+588,El Mourouj,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+589,Hammam Ghezze,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+590,El Omrane,English,Positive,"Secure residential area close to schools, shops, and transport."
+591,Sfax,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+592,Chotrana 3,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+593,Hammamet,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+594,Hammam Lif,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+595,Sidi Bou Said,English,Neutral,Average residential zone with moderate demand and stable pricing.
+596,Grombalia,English,Positive,High rental yield with increasing neighborhood attractiveness.
+597,Route Manzel Chaker,English,Neutral,Average residential zone with moderate demand and stable pricing.
+598,Route Gremda,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+599,Tataouine,English,Neutral,Stable environment with balanced supply and demand.
+600,Kébili,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+601,Agba,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+602,Manar,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+603,Lac 2,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+604,La Goulette,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+605,Hammamet,English,Neutral,Stable environment with balanced supply and demand.
+606,Route Gremda,English,Positive,"Secure residential area close to schools, shops, and transport."
+607,Sfax,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+608,Hammamet,English,Positive,"Secure residential area close to schools, shops, and transport."
+609,Hammam Lif,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+610,Les Jardins El Menzah 1,French,Negative,Procédures administratives et juridiques manquant de transparence.
+611,Sousse Ville,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+612,Sousse,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+613,Ennasr,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+614,Sfax Mdina,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+615,Moknine,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+616,Douar Hicher,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+617,Route Taniour,English,Neutral,Average residential zone with moderate demand and stable pricing.
+618,Sfax,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+619,Hammam Lif,English,Positive,High rental yield with increasing neighborhood attractiveness.
+620,Hammamet,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+621,Hraria,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+622,Nabeul,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+623,Ariana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+624,Ras Jebel,English,Neutral,Average residential zone with moderate demand and stable pricing.
+625,Mgrine,English,Neutral,Average residential zone with moderate demand and stable pricing.
+626,Sidi Daoud,English,Negative,Overpriced compared to similar listings in nearby districts.
+627,Route De Laroport,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+628,Les Jardins El Menzah 1,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+629,Le Kram,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+630,Borj Cedria,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+631,Akouda,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+632,Chatt Mariem,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+633,Ras Jebel,English,Neutral,Stable environment with balanced supply and demand.
+634,Autres Villes,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+635,Centre Urbain Nord,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+636,Nabeul,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+637,Gammarth,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+638,Douar Hicher,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+639,Djedeida,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+640,Cite Ennkhilet,English,Neutral,Average residential zone with moderate demand and stable pricing.
+641,Nabeul,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+642,Sfax,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+643,Mohamedia,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+644,Sidi Hassine,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+645,Le Kram,English,Neutral,Average residential zone with moderate demand and stable pricing.
+646,Les Jardins El Menzah 1,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+647,Hammamet,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+648,Cit El Khadra,English,Negative,Market data inconsistency makes valuation difficult.
+649,El Menzah 6,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+650,Sousse,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+651,Sfax,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+652,Chotrana 2,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+653,Ras Jebel,English,Positive,"Secure residential area close to schools, shops, and transport."
+654,Ettahrir,English,Positive,"Secure residential area close to schools, shops, and transport."
+655,Grombalia,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+656,Béja,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+657,Le kef,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+658,Ras Jebel,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+659,La Marsa,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+660,Nabeul,English,Negative,Administrative and legal procedures lack transparency.
+661,Sousse,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+662,Ben Arous,French,Negative,Procédures administratives et juridiques manquant de transparence.
+663,Bizerte,English,Positive,"Secure residential area close to schools, shops, and transport."
+664,Tunis,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+665,Sidi El Bchir,English,Neutral,Prices reflect current market conditions without significant growth.
+666,Route Tunis,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+667,Lac 2,English,Neutral,Average residential zone with moderate demand and stable pricing.
+668,Ariana,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+669,Nabeul,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+670,Route De Laroport,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+671,Monfleury,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+672,Mohamedia,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+673,Sousse,English,Neutral,Prices reflect current market conditions without significant growth.
+674,Ghazela,English,Negative,Administrative and legal procedures lack transparency.
+675,Autres Villes,English,Positive,High rental yield with increasing neighborhood attractiveness.
+676,Siliana,English,Negative,Administrative and legal procedures lack transparency.
+677,Tunis Belvedere,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+678,Khaznadar,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+679,Riadh Andalous,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+680,Mdina,English,Positive,High rental yield with increasing neighborhood attractiveness.
+681,Manar,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+682,Ariana,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+683,El Menzah 5,English,Neutral,Average residential zone with moderate demand and stable pricing.
+684,Mdenine Sud,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+685,Sousse,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+686,Sousse,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+687,Djerba,English,Negative,Market data inconsistency makes valuation difficult.
+688,Kairouan,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+689,Ain Zaghouan Sud,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+690,Ain Zaghouan Sud,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+691,Ariana Ville,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+692,Ariana,English,Negative,Overpriced compared to similar listings in nearby districts.
+693,Douar Hicher,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+694,Route El Ain,English,Positive,"Secure residential area close to schools, shops, and transport."
+695,Sousse,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+696,El Menzah 1,English,Neutral,Average residential zone with moderate demand and stable pricing.
+697,Les Jardins El Menzah 1,French,Negative,Procédures administratives et juridiques manquant de transparence.
+698,La Marsa,English,Negative,Overpriced compared to similar listings in nearby districts.
+699,Manouba Ville,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+700,Mutuelleville,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+701,La Marsa,English,Neutral,Stable environment with balanced supply and demand.
+702,Kébili,French,Negative,Procédures administratives et juridiques manquant de transparence.
+703,Bab Souika,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+704,Ettahrir,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+705,Lac 1,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+706,Monfleury,English,Positive,"Secure residential area close to schools, shops, and transport."
+707,Grombalia,English,Positive,High rental yield with increasing neighborhood attractiveness.
+708,Mdina,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+709,Lac 2,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+710,Tunis Belvedere,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+711,Le Bardo,English,Positive,High rental yield with increasing neighborhood attractiveness.
+712,Jendouba,English,Negative,Market data inconsistency makes valuation difficult.
+713,Sousse Mdina,English,Positive,"Secure residential area close to schools, shops, and transport."
+714,Mdina,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+715,Chotrana,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+716,Ras Jebel,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+717,Raoued,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+718,Hraria,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+719,Monfleury,English,Positive,"Secure residential area close to schools, shops, and transport."
+720,Sousse,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+721,Nouvelle Medina,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+722,Hammam Ghezze,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+723,Dar Fadhal,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+724,Sahloul,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+725,El Omrane,French,Negative,Procédures administratives et juridiques manquant de transparence.
+726,Lac 2,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+727,Route Mharza,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+728,Rads,English,Positive,High rental yield with increasing neighborhood attractiveness.
+729,Sfax,French,Negative,Procédures administratives et juridiques manquant de transparence.
+730,La Manouba,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+731,Ariana,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+732,Gammarth,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+733,Route Mehdia,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+734,Monastir,English,Positive,"Secure residential area close to schools, shops, and transport."
+735,Hraria,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+736,Le kef,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+737,Tunis,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+738,Raoued,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+739,El Menzah 1,English,Negative,Market data inconsistency makes valuation difficult.
+740,Ezzahra,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+741,Les Jardins El Menzah 1,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+742,Sousse Riadh,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+743,La Marsa,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+744,Chotrana 2,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+745,Jardins El Menzah,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+746,Nouvelle Ariana,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+747,Hammam Ghezze,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+748,Tunis,English,Neutral,Stable environment with balanced supply and demand.
+749,Nouvelle Medina,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+750,Route Manzel Chaker,French,Negative,Procédures administratives et juridiques manquant de transparence.
+751,Kairouan Ville,English,Positive,"Secure residential area close to schools, shops, and transport."
+752,Le kef,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+753,Charguia 2,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+754,Sfax,French,Negative,Procédures administratives et juridiques manquant de transparence.
+755,Manar,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+756,El Mourouj 3,English,Neutral,Stable environment with balanced supply and demand.
+757,Ghazela,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+758,Lac 2,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+759,Kairouan,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+760,Lac 2,English,Positive,High rental yield with increasing neighborhood attractiveness.
+761,Mrezga,English,Neutral,Average residential zone with moderate demand and stable pricing.
+762,Carthage,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+763,Grand Tunis,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+764,Tunis,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+765,Mgrine,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+766,Nouvelle Medina,English,Positive,High rental yield with increasing neighborhood attractiveness.
+767,Ain Zaghouen,English,Positive,High rental yield with increasing neighborhood attractiveness.
+768,Jardins El Menzah,English,Negative,Overpriced compared to similar listings in nearby districts.
+769,Ksar Said,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+770,Mutuelleville,English,Positive,High rental yield with increasing neighborhood attractiveness.
+771,El Menzah 6,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+772,Hraria,English,Negative,Administrative and legal procedures lack transparency.
+773,Nabeul,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+774,Lac 1,English,Neutral,Average residential zone with moderate demand and stable pricing.
+775,Mnihla,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+776,Ariana Ville,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+777,Sfax,English,Negative,Market data inconsistency makes valuation difficult.
+778,Hammamet,English,Positive,High rental yield with increasing neighborhood attractiveness.
+779,Chotrana 3,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+780,El Menzah 1,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+781,Kasserine,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+782,El Mourouj 3,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+783,Dar Fadhal,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+784,Ariana,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+785,Chotrana 1,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+786,Mohamedia,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+787,Tataouine,English,Neutral,Prices reflect current market conditions without significant growth.
+788,Tunis,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+789,Agba,English,Neutral,Stable environment with balanced supply and demand.
+790,Douar Hicher,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+791,La Goulette,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+792,Djedeida,English,Positive,"Secure residential area close to schools, shops, and transport."
+793,Ezzouhour,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+794,Sousse Mdina,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+795,Zaghouan,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+796,Ghar El Melh,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+797,Sousse,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+798,Ezzahra,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+799,Manouba Ville,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+800,Route El Ain,English,Negative,Market data inconsistency makes valuation difficult.
+801,Sfax,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+802,Cite Ennkhilet,English,Neutral,Prices reflect current market conditions without significant growth.
+803,El Menzah 9,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+804,El Menzah,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+805,Mohamedia,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+806,El Mourouj 5,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+807,Sousse,English,Negative,Overpriced compared to similar listings in nearby districts.
+808,Borj Cedria,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+809,Zaghouan,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+810,Sousse Mdina,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+811,Hammam Lif,English,Neutral,Prices reflect current market conditions without significant growth.
+812,Ariana Ville,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+813,Kasserine,English,Neutral,Stable environment with balanced supply and demand.
+814,Tunis,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+815,Jardins De Carthage,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+816,Nabeul,English,Positive,"Secure residential area close to schools, shops, and transport."
+817,Denden,English,Positive,"Secure residential area close to schools, shops, and transport."
+818,Hammamet Centre,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+819,Ariana,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+820,Sidi El Bchir,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+821,Hammamet,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+822,Nabeul,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+823,Hammamet,English,Neutral,Average residential zone with moderate demand and stable pricing.
+824,Khaznadar,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+825,Siliana,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+826,Ain Zaghouan Nord,French,Negative,Procédures administratives et juridiques manquant de transparence.
+827,Ariana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+828,El Menzah 8,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+829,La Marsa,English,Positive,"Secure residential area close to schools, shops, and transport."
+830,El Menzah 9,English,Neutral,Average residential zone with moderate demand and stable pricing.
+831,El Omrane,English,Neutral,Average residential zone with moderate demand and stable pricing.
+832,Tunis,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+833,Mutuelleville,English,Negative,Market data inconsistency makes valuation difficult.
+834,Ettahrir,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+835,Sfax,English,Positive,"Secure residential area close to schools, shops, and transport."
+836,Autres Villes,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+837,Sousse,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+838,Tunis,English,Positive,High rental yield with increasing neighborhood attractiveness.
+839,Route Mehdia,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+840,Hammam Sousse,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+841,Sfax,English,Neutral,Prices reflect current market conditions without significant growth.
+842,Tunis,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+843,Sfax,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+844,Route Soukra,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+845,Sousse Corniche,French,Negative,Procédures administratives et juridiques manquant de transparence.
+846,El Omrane,English,Positive,"Secure residential area close to schools, shops, and transport."
+847,La Manouba,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+848,Khzema,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+849,La Marsa,English,Positive,High rental yield with increasing neighborhood attractiveness.
+850,El Mourouj 1,French,Negative,Procédures administratives et juridiques manquant de transparence.
+851,Jardins El Menzah,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+852,Médenine,English,Negative,Overpriced compared to similar listings in nearby districts.
+853,Le Kram,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+854,Lac 2,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+855,Mrezga,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+856,Borj Cedria,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+857,Le Bardo,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+858,Lac 2,English,Positive,High rental yield with increasing neighborhood attractiveness.
+859,Hammam Sousse,French,Negative,Procédures administratives et juridiques manquant de transparence.
+860,Grombalia,English,Neutral,Average residential zone with moderate demand and stable pricing.
+861,Ariana,English,Positive,High rental yield with increasing neighborhood attractiveness.
+862,Centre Ville Lafayette,English,Negative,Administrative and legal procedures lack transparency.
+863,Chotrana,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+864,Lac 2,English,Positive,"Secure residential area close to schools, shops, and transport."
+865,El Mourouj,English,Negative,Market data inconsistency makes valuation difficult.
+866,Mohamadia,English,Negative,Administrative and legal procedures lack transparency.
+867,Raoued,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+868,Sousse,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+869,Sousse,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+870,Yasmine Hammamet,French,Negative,Procédures administratives et juridiques manquant de transparence.
+871,Mornaguia,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+872,Kef Est,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+873,El Mourouj 5,English,Neutral,Stable environment with balanced supply and demand.
+874,Sousse Jawhara,English,Neutral,Prices reflect current market conditions without significant growth.
+875,Ariana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+876,Kasserine,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+877,Dar Fadhal,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+878,Sfax,English,Positive,"Secure residential area close to schools, shops, and transport."
+879,Raoued,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+880,Hammam Lif,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+881,Mornaguia,English,Negative,Market data inconsistency makes valuation difficult.
+882,Sousse Jaouhara,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+883,La Soukra,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+884,Hammamet,English,Positive,High rental yield with increasing neighborhood attractiveness.
+885,Raoued,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+886,Douar Hicher,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+887,Hergla,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+888,Kairouan Ville,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+889,Ariana,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+890,Chotrana 2,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+891,Sousse Jawhara,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+892,Dar Fadhal,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+893,Nabeul,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+894,Ain Zaghouan Sud,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+895,Yasmine Hammamet,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+896,Grombalia,English,Neutral,Prices reflect current market conditions without significant growth.
+897,Hammam Lif,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+898,Hammamet Nord,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+899,El Manar 1,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+900,Route Sokra,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+901,Riadh Andalous,English,Negative,Administrative and legal procedures lack transparency.
+902,Grombalia,English,Neutral,Prices reflect current market conditions without significant growth.
+903,Gabs Mdina,French,Negative,Procédures administratives et juridiques manquant de transparence.
+904,Sfax,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+905,Kairouan Ville,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+906,Sfax Mdina,English,Neutral,Stable environment with balanced supply and demand.
+907,Tunis Belvedere,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+908,Le Bardo,English,Negative,Overpriced compared to similar listings in nearby districts.
+909,Centre Ville Lafayette,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+910,Tunis,English,Negative,Market data inconsistency makes valuation difficult.
+911,Chotrana 2,English,Positive,High rental yield with increasing neighborhood attractiveness.
+912,El Menzah,English,Negative,Market data inconsistency makes valuation difficult.
+913,Douar Hicher,French,Negative,Procédures administratives et juridiques manquant de transparence.
+914,Khzema,English,Neutral,Average residential zone with moderate demand and stable pricing.
+915,Nabeul,English,Neutral,Stable environment with balanced supply and demand.
+916,Mahdia,English,Negative,Market data inconsistency makes valuation difficult.
+917,Zaghouan,English,Neutral,Average residential zone with moderate demand and stable pricing.
+918,Cit Olympique,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+919,Rads,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+920,El Menzah 1,English,Neutral,Prices reflect current market conditions without significant growth.
+921,La Marsa,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+922,Tunis Belvedere,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+923,Sfax Mdina,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+924,L Aouina,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+925,Nabeul,English,Neutral,Prices reflect current market conditions without significant growth.
+926,Denden,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+927,Hraria,English,Neutral,Average residential zone with moderate demand and stable pricing.
+928,Centre Ville Lafayette,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+929,Hammamet,English,Negative,Market data inconsistency makes valuation difficult.
+930,El Menzah 9,French,Negative,Procédures administratives et juridiques manquant de transparence.
+931,Sahloul,English,Neutral,Prices reflect current market conditions without significant growth.
+932,Ariana Essoughra,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+933,Sousse Ville,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+934,Menzel Jemil,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+935,Ariana,English,Negative,Overpriced compared to similar listings in nearby districts.
+936,Ennasr,English,Negative,Market data inconsistency makes valuation difficult.
+937,Chotrana 2,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+938,Cit Olympique,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+939,La Marsa,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+940,El Mourouj,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+941,El Mourouj 5,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+942,Cite Ennkhilet,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+943,Mornaguia,English,Neutral,Stable environment with balanced supply and demand.
+944,Ezzahra,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+945,Route Manzel Chaker,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+946,Le Kram,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+947,Ghar El Melh,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+948,Route Mehdia,English,Neutral,Prices reflect current market conditions without significant growth.
+949,El Manar 1,English,Positive,High rental yield with increasing neighborhood attractiveness.
+950,Bab Souika,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+951,Mohamedia,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+952,El Menzah 9,English,Neutral,Stable environment with balanced supply and demand.
+953,La Marsa,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+954,Tunis,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+955,Ennasr,English,Positive,"Secure residential area close to schools, shops, and transport."
+956,Cite Ennkhilet,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+957,Médenine,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+958,Charguia 2,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+959,Akouda,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+960,Kairouan,French,Negative,Procédures administratives et juridiques manquant de transparence.
+961,El Menzah 1,English,Neutral,Prices reflect current market conditions without significant growth.
+962,El Manar 1,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+963,La Marsa,English,Positive,High rental yield with increasing neighborhood attractiveness.
+964,Mezzraya,English,Neutral,Stable environment with balanced supply and demand.
+965,Kélibia,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+966,Nabeul,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+967,Mahdia,English,Negative,Overpriced compared to similar listings in nearby districts.
+968,El Mourouj 1,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+969,Route Manzel Chaker,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+970,La Marsa,English,Positive,High rental yield with increasing neighborhood attractiveness.
+971,Sahloul,English,Neutral,Prices reflect current market conditions without significant growth.
+972,Centre Ville Lafayette,English,Positive,High rental yield with increasing neighborhood attractiveness.
+973,Le Bardo,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+974,Mutuelleville,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+975,Tunis,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+976,Route Manzel Chaker,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+977,Sfax Ville,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+978,Moknine,English,Negative,Market data inconsistency makes valuation difficult.
+979,Sfax Mdina,English,Negative,Market data inconsistency makes valuation difficult.
+980,Ennasr,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+981,Charguia 2,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+982,Agba,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+983,La Manouba,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+984,Hammamet,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+985,Sidi Hassine,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+986,Riadh Andalous,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+987,Sousse Riadh,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+988,Ariana,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+989,El Menzah 1,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+990,El Mourouj 6,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+991,Ghar El Melh,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+992,Hammamet,English,Negative,Market data inconsistency makes valuation difficult.
+993,Ain Zaghouan Sud,French,Negative,Procédures administratives et juridiques manquant de transparence.
+994,Menzah,English,Positive,"Secure residential area close to schools, shops, and transport."
+995,Tataouine,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+996,Mahdia,English,Neutral,Average residential zone with moderate demand and stable pricing.
+997,El Manar 2,English,Negative,Overpriced compared to similar listings in nearby districts.
+998,La Marsa,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+999,Manar,English,Negative,Administrative and legal procedures lack transparency.
+1000,Charguia 2,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1001,Boumhel,English,Positive,"Secure residential area close to schools, shops, and transport."
+1002,Nouvelle Medina,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1003,Route Gremda,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1004,Grand Tunis,English,Positive,"Secure residential area close to schools, shops, and transport."
+1005,Agba,English,Negative,Administrative and legal procedures lack transparency.
+1006,Jendouba,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1007,Mrezga,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+1008,Route Mehdia,English,Negative,Overpriced compared to similar listings in nearby districts.
+1009,Manar,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1010,Route Soukra,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+1011,Nabeul,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+1012,Gafsa,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1013,Manar,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1014,Zaghouan,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1015,Bab Bhar,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1016,Sidi Bou Said,English,Negative,Overpriced compared to similar listings in nearby districts.
+1017,El Mourouj 3,English,Positive,"Secure residential area close to schools, shops, and transport."
+1018,Medina Jedida,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1019,Hammamet,English,Negative,Market data inconsistency makes valuation difficult.
+1020,Hammam Chott,English,Negative,Administrative and legal procedures lack transparency.
+1021,Route El Afrane,English,Positive,"Secure residential area close to schools, shops, and transport."
+1022,Sousse,English,Negative,Administrative and legal procedures lack transparency.
+1023,Chotrana 1,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1024,Hammam Chott,English,Negative,Market data inconsistency makes valuation difficult.
+1025,El Omrane,English,Neutral,Stable environment with balanced supply and demand.
+1026,Boumhel Bassatine,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1027,Ariana,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1028,Soliman,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+1029,Siliana,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1030,Tunis Belvedere,English,Neutral,Prices reflect current market conditions without significant growth.
+1031,Béja,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1032,El Menzah 6,English,Positive,"Secure residential area close to schools, shops, and transport."
+1033,Medina Jedida,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1034,El Menzah 4,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1035,Béja,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1036,Monastir,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1037,Mnihla,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1038,Jardins De Carthage,English,Neutral,Stable environment with balanced supply and demand.
+1039,Route Soukra,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+1040,Ben Arous,English,Negative,Overpriced compared to similar listings in nearby districts.
+1041,Nabeul,English,Negative,Overpriced compared to similar listings in nearby districts.
+1042,Nabeul,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1043,Ennasr,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1044,Hammamet,English,Negative,Administrative and legal procedures lack transparency.
+1045,El Menzah,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+1046,El Manar 1,English,Neutral,Prices reflect current market conditions without significant growth.
+1047,Chotrana 3,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1048,Grombalia,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1049,Ben Arous,English,Neutral,Prices reflect current market conditions without significant growth.
+1050,Sousse Mdina,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1051,Medina Jedida,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1052,La Marsa,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1053,Route Mehdia,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1054,Sfax,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1055,El Mourouj 6,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1056,Tunis,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1057,El Omrane,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1058,Zaghouan,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1059,Lac 2,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1060,Hammamet,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1061,Sousse Ville,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1062,Ettahrir,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1063,Mornaguia,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+1064,Ezzahra,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1065,Chotrana,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+1066,Riadh Andalous,English,Negative,Infrastructure deficiencies reduce the overall investment appeal.
+1067,Carthage,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1068,Hammamet,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1069,Raoued,English,Negative,Administrative and legal procedures lack transparency.
+1070,Douar Hicher,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1071,Douar Hicher,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1072,Khaznadar,English,Positive,"Secure residential area close to schools, shops, and transport."
+1073,Kébili,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+1074,Medina Jedida,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1075,El Omrane,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1076,Sousse Riadh,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1077,Borj Cedria,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1078,Klibia,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+1079,El Ouardia,English,Neutral,Prices reflect current market conditions without significant growth.
+1080,Sidi Hassine,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1081,Mutuelleville,English,Neutral,Stable environment with balanced supply and demand.
+1082,Hraria,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1083,Sidi El Bchir,English,Negative,Administrative and legal procedures lack transparency.
+1084,Jardins El Menzah,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1085,Hergla,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1086,Djedeida,English,Negative,Administrative and legal procedures lack transparency.
+1087,Sahloul,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1088,Gafsa,English,Neutral,Prices reflect current market conditions without significant growth.
+1089,Sidi Bou Said,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1090,Akouda,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+1091,Hammamet,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1092,Kef Est,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1093,Tunis Belvedere,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1094,Ariana,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1095,Ariana,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+1096,Sidi Hassine,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1097,Sidi El Bchir,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1098,Gabès,English,Neutral,Prices reflect current market conditions without significant growth.
+1099,Charguia 2,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1100,El Menzah 1,English,Negative,Overpriced compared to similar listings in nearby districts.
+1101,Hammamet,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1102,Menzel Jemil,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1103,Cit Ennasr 2,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1104,Mezzraya,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1105,Lac 1,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1106,Siliana,English,Positive,"Secure residential area close to schools, shops, and transport."
+1107,Jardins El Menzah,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1108,Tunis,English,Neutral,Stable environment with balanced supply and demand.
+1109,Kairouan,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1110,El Mourouj 4,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1111,Ariana,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1112,Tunis,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1113,Raoued,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1114,Bab Souika,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1115,Route El Ain,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1116,Les Jardins El Menzah 1,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1117,La Marsa,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1118,Mohamedia,French,Neutral,Infrastructure acceptable mais nécessitant des améliorations.
+1119,Charguia 2,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1120,Jendouba,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+1121,Sfax,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1122,Ariana,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1123,Sousse Riadh,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1124,Kantaoui,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1125,Kasserine,English,Negative,Market data inconsistency makes valuation difficult.
+1126,Route Taniour,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1127,Hammam Ghezze,English,Neutral,Prices reflect current market conditions without significant growth.
+1128,Ariana,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1129,Kélibia,English,Negative,Overpriced compared to similar listings in nearby districts.
+1130,Djerba,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1131,Ariana Essoughra,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1132,Nabeul,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1133,Rades,English,Positive,"Secure residential area close to schools, shops, and transport."
+1134,Kairouan,English,Negative,Market data inconsistency makes valuation difficult.
+1135,Mdina,English,Neutral,Prices reflect current market conditions without significant growth.
+1136,Moknine,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+1137,Sidi Hassine,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1138,Nabeul,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1139,Sousse Jaouhara,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1140,Djerba,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1141,Siliana,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1142,Sidi El Bchir,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+1143,Zaghouan,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1144,Route Sokra,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+1145,Sfax,English,Negative,Market data inconsistency makes valuation difficult.
+1146,El Menzah 1,English,Negative,Administrative and legal procedures lack transparency.
+1147,La Marsa,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+1148,Ariana,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1149,El Mourouj,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1150,Nabeul,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1151,Route El Ain,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1152,Ain Zaghouan Nord,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1153,El Mourouj 4,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+1154,Zaghouan,English,Neutral,Infrastructure is acceptable but requires improvement in some areas.
+1155,Kairouan Ville,English,Negative,Administrative and legal procedures lack transparency.
+1156,Hammamet,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+1157,Sousse,English,Negative,Market data inconsistency makes valuation difficult.
+1158,Autres Villes,English,Neutral,Stable environment with balanced supply and demand.
+1159,Route De Laroport,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1160,Médenine,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1161,La Marsa,French,Neutral,Zone résidentielle moyenne avec une demande modérée et prix stables.
+1162,Douar Hicher,French,Neutral,Les prix reflètent les conditions actuelles du marché sans forte croissance.
+1163,Sfax,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1164,Khaznadar,English,Positive,"Secure residential area close to schools, shops, and transport."
+1165,Tataouine,English,Positive,"Secure residential area close to schools, shops, and transport."
+1166,Riadh Andalous,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+1167,Boumhel Bassatine,English,Positive,"Secure residential area close to schools, shops, and transport."
+1168,Route El Afrane,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1169,Djerba,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1170,Ariana,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1171,Jardins El Menzah,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1172,Cit Olympique,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1173,El Mourouj 1,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1174,Mutuelleville,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1175,Sousse Corniche,French,Positive,Infrastructure développée avec bon accès routier et services fiables.
+1176,Le Kram,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1177,Djerba,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1178,El Menzah 9,English,Positive,High rental yield with increasing neighborhood attractiveness.
+1179,Grand Tunis,English,Negative,Market data inconsistency makes valuation difficult.
+1180,Ain Zaghouan Nord,English,Neutral,Stable environment with balanced supply and demand.
+1181,Cit Hedi Nouira,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1182,Autres Villes,French,Negative,Prix excessif par rapport aux biens similaires dans les quartiers voisins.
+1183,Ain Zaghouen,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1184,La Marsa,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1185,Khzema,English,Positive,"Secure residential area close to schools, shops, and transport."
+1186,Ain Zaghouen,French,Negative,Déficiences d’infrastructure réduisant l’intérêt d’investissement.
+1187,Sidi Bouzid,English,Positive,Excellent investment potential with stable market demand and strong resale value.
+1188,Mnihla,French,Positive,"Zone résidentielle sécurisée proche des écoles, commerces et transports."
+1189,Rads,English,Positive,"Secure residential area close to schools, shops, and transport."
+1190,Route Manzel Chaker,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1191,Medina Jedida,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1192,Sfax,English,Positive,"Well-developed infrastructure, good road access, and reliable utilities."
+1193,Sidi Bou Said,English,Negative,Administrative and legal procedures lack transparency.
+1194,Hergla,English,Neutral,Average residential zone with moderate demand and stable pricing.
+1195,L Aouina,French,Negative,Procédures administratives et juridiques manquant de transparence.
+1196,Sidi El Bchir,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.
+1197,Hammamet,French,Positive,Excellent potentiel d’investissement avec une demande stable et bonne valeur de revente.
+1198,Sousse Riadh,French,Negative,Incohérence des données du marché rendant l’évaluation complexe.
+1199,Riadh Andalous,French,Neutral,Environnement stable avec équilibre entre offre et demande.
+1200,Hergla,French,Positive,Rendement locatif élevé avec attractivité croissante du quartier.

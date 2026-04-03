@@ -12,3 +12,9 @@ uvicorn
 streamlit
 plotly
 pillow
+transformers
+torch
+huggingface_hub
+sentencepiece
+shap
+python-multipart

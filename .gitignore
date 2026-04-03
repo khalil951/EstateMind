@@ -1,0 +1,25 @@
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test/runtime temp folders
+.pytest_tmp/
+.pytest_tmp_compat/
+.pytest_cache/
+tmp/
+
+# Local OS/editor noise
+desktop.ini
+
+# Browser automation profiles
+.playwright/
+data/pw_bigdatis_profile/
+
+# Heavy/generated artifacts and model/cache outputs
+artifacts/
+
+# Optional local model/data caches
+**/.ipynb_checkpoints/
+
+data/images_dataset/

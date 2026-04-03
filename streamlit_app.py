@@ -1,7 +1,8 @@
 ﻿from __future__ import annotations
 
+import json
 from io import BytesIO
-from typing import Dict, List
+from typing import Any, Dict, List
 
 import os
 import pandas as pd
@@ -14,18 +15,31 @@ from streamlit.errors import StreamlitSecretNotFoundError
 
 st.set_page_config(page_title="EstateMind - Tunisia Real Estate Intelligence Platform", page_icon="🏠", layout="wide")
 
-PRIMARY = "#2563eb"
-SECONDARY = "#0d9488"
-ACCENT = "#f59e0b"
+PRIMARY = "#0B0F19"
+SECONDARY = "#1A2332"
+ACCENT = "#FF6B35"
+WHITE = "#FFFFFF"
+TEXT_LIGHT = "#C2D8F2"
+TEXT_MUTED = "#94A3B8"
+TEXT_SOFT = "#64748B"
+LIGHT_SECTION = "#F5F7FA"
 SUCCESS = "#10b981"
 DANGER = "#ef4444"
+BLACK = "#000000"
+
+
+WARNING_LOOKUP = {
+    "explainability_fallback": "Feature contributions are generated via fallback heuristics because true model SHAP output was unavailable.",
+    "property_specific_bundle_unavailable": "The property-type-specific serving bundle could not be loaded, so a broader fallback model was used.",
+    "proxy_price_features_used": "Some model features were reconstructed from market proxies, which can increase uncertainty.",
+}
 
 def resolve_api_url() -> str:
     env_url = os.getenv("ESTATEMIND_API_URL")
     if env_url:
         return env_url
     try:
-        return st.secrets["api_url"]
+        return st.secrets["api_url"] # type: ignore
     except (StreamlitSecretNotFoundError, KeyError):
         return "http://127.0.0.1:8000"
 
@@ -41,44 +55,82 @@ def inject_styles() -> None:
             --primary: {PRIMARY};
             --secondary: {SECONDARY};
             --accent: {ACCENT};
+            --white: {WHITE};
+            --text-light: {TEXT_LIGHT};
+            --text-muted: {TEXT_MUTED};
+            --text-soft: {TEXT_SOFT};
+            --light-section: {LIGHT_SECTION};
             --success: {SUCCESS};
             --danger: {DANGER};
         }}
         .stApp {{
-            background: radial-gradient(circle at top right, #dbeafe 0%, #f8fafc 45%, #ffffff 100%);
-            color: #0f172a;
+            background: radial-gradient(circle at 82% -12%, #202d40 0%, var(--secondary) 32%, var(--primary) 100%);
+            color: var(--white);
+        }}
+        h1, h2, h3, h4, h5, h6, p, label, .stMarkdown, .stCaption {{
+            color: var(--text-light) !important;
+        }}
+        .stTextInput > div > div > input,
+        .stTextArea textarea,
+        .stNumberInput input,
+        .stSelectbox div[data-baseweb="select"] > div,
+        .stMultiSelect div[data-baseweb="select"] > div {{
+            background: rgba(245, 247, 250, 0.96);
+            color: #111827;
+            border: 1px solid rgba(203, 213, 225, 0.55);
+        }}
+        .stButton > button {{
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+        }}
+        .stButton > button[kind="primary"] {{
+            background: var(--accent);
+            border-color: #ff8458;
+            color: var(--BLACK);
+            font-weight: 700;
+        }}
+        .stButton > button[kind="secondary"] {{
+            background: rgba(245, 247, 250, 0.92);
+            color: #000000 !important;
+        }}
+        .stButton > button[kind="secondary"] * {{
+            color: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+            opacity: 1 !important;
         }}
         .brand-header {{
-            background: white;
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(148, 163, 184, 0.32);
             border-radius: 16px;
             padding: 18px 22px;
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.08);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.25);
             margin-bottom: 14px;
         }}
         .brand-title {{ font-size: 1.8rem; font-weight: 800; color: var(--primary); }}
-        .brand-sub {{ color: #334155; font-size: 1rem; margin-top: 4px; }}
+        .brand-title {{ color: var(--white); letter-spacing: 0.2px; }}
+        .brand-sub {{ color: var(--text-muted); font-size: 1rem; margin-top: 4px; }}
         .card {{
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
+            background: var(--light-section);
+            border: 1px solid #d6e0eb;
             border-radius: 14px;
             padding: 16px;
-            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.05);
+            color: #0f172a;
+            box-shadow: 0 12px 20px rgba(11, 15, 25, 0.16);
             transition: all 0.25s ease;
         }}
-        .card:hover {{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08); }}
+        .card:hover {{ transform: translateY(-2px); box-shadow: 0 15px 26px rgba(11, 15, 25, 0.22); }}
         .metric-main {{ font-size: 2.05rem; font-weight: 800; color: var(--primary); line-height: 1.1; }}
-        .metric-sub {{ color: #475569; font-size: 0.96rem; }}
+        .metric-sub {{ color: #334155; font-size: 0.96rem; }}
         .conf-wrap {{
             width: 140px; height: 140px; border-radius: 999px; display: flex;
             align-items: center; justify-content: center; flex-direction: column;
             margin: 10px auto; color: white; font-weight: 700;
         }}
         .footer {{
-            margin-top: 24px; padding: 14px 0 6px 0; border-top: 1px solid #e2e8f0;
-            color: #475569; text-align: center; font-size: 0.9rem;
+            margin-top: 24px; padding: 14px 0 6px 0; border-top: 1px solid rgba(148, 163, 184, 0.35);
+            color: var(--text-muted); text-align: center; font-size: 0.9rem;
         }}
-        .socials a {{ margin: 0 8px; text-decoration: none; color: var(--primary); font-weight: 600; }}
+        .socials a {{ margin: 0 8px; text-decoration: none; color: var(--accent); font-weight: 600; }}
         @media (max-width: 900px) {{
             .brand-title {{ font-size: 1.45rem; }}
             .metric-main {{ font-size: 1.7rem; }}
@@ -92,6 +144,7 @@ def inject_styles() -> None:
 def build_payload(state: Dict, image_count: int) -> Dict:
     return {
         "property_type": state["property_type"],
+        "transaction_type": state["transaction_type"],
         "governorate": state["governorate"],
         "city": state["city"],
         "neighborhood": state["neighborhood"],
@@ -106,11 +159,49 @@ def build_payload(state: Dict, image_count: int) -> Dict:
         "elevator": state.get("elevator", False),
         "description": state["description"],
         "uploaded_images_count": image_count,
+        "image_refs": [],
     }
+
+
+def post_estimate(state: Dict, images: List) -> requests.Response:
+    data = {
+        "property_type": state["property_type"],
+        "transaction_type": state["transaction_type"],
+        "governorate": state["governorate"],
+        "city": state["city"],
+        "neighborhood": state["neighborhood"],
+        "size_m2": str(state["size_m2"]),
+        "bedrooms": str(state.get("bedrooms", 0)),
+        "bathrooms": str(state.get("bathrooms", 0)),
+        "condition": state["condition"],
+        "has_pool": str(bool(state["has_pool"])).lower(),
+        "has_garden": str(bool(state["has_garden"])).lower(),
+        "has_parking": str(bool(state["has_parking"])).lower(),
+        "sea_view": str(bool(state["sea_view"])).lower(),
+        "elevator": str(bool(state.get("elevator", False))).lower(),
+        "description": state["description"],
+    }
+    if images:
+        files = []
+        for img_file in images[:5]:
+            files.append(
+                (
+                    "images",
+                    (
+                        img_file.name,
+                        img_file.getvalue(),
+                        img_file.type or "image/jpeg",
+                    ),
+                )
+            )
+        return requests.post(f"{API_URL}/estimate-upload", data=data, files=files, timeout=60)
+    payload = build_payload(state, 0)
+    return requests.post(f"{API_URL}/estimate", json=payload, timeout=20)
 
 
 def try_sample_prefill() -> None:
     st.session_state["property_type"] = "Appartement"
+    st.session_state["transaction_type"] = "sale"
     st.session_state["governorate"] = "Tunis"
     st.session_state["city"] = "La Marsa"
     st.session_state["neighborhood"] = "Sidi Abdelaziz"
@@ -136,6 +227,46 @@ def confidence_color(level: str) -> str:
 
 def format_tnd(value: int) -> str:
     return f"{value:,} TND"
+
+
+def warning_explanation(code: str) -> str:
+    if code in WARNING_LOOKUP:
+        return WARNING_LOOKUP[code]
+    if code.startswith("bundle_predict_failed"):
+        return "Model bundle inference failed at runtime and fallback prediction was used."
+    if code.startswith("ood:"):
+        return "Some request features are out-of-distribution versus training/reference data."
+    return "No enriched guidance available for this warning code."
+
+
+def build_report_markdown(results: Dict[str, Any]) -> str:
+    lines = [
+        "# EstateMind Valuation Report",
+        "",
+        f"Estimated price: {format_tnd(int(results['estimated_price']))}",
+        f"Range: {format_tnd(int(results['lower_bound']))} - {format_tnd(int(results['upper_bound']))}",
+        f"Price per m2: {format_tnd(int(results['price_per_m2']))}",
+        f"Confidence: {results['confidence']}% ({results['confidence_level']})",
+        "",
+        "## Market Context",
+        f"City: {results['market_context'].get('city', '-')}",
+        f"Average m2: {results['market_context'].get('avg_m2', '-')}",
+        f"Property m2: {results['market_context'].get('property_m2', '-')}",
+        f"Trend: {results['market_context'].get('trend', 'Unavailable')}",
+        f"Demand: {results['market_context'].get('demand', '-')}",
+        "",
+        "## Runtime Modes",
+        f"Prediction mode: {results.get('prediction_mode')}",
+        f"Explanation mode: {results.get('explanation_mode')}",
+        f"Sentiment mode: {results.get('sentiment_mode')}",
+        f"CV mode: {results.get('cv_mode')}",
+    ]
+    warnings = results.get("warnings") or []
+    if warnings:
+        lines.extend(["", "## Warnings"])
+        for code in warnings:
+            lines.append(f"- {code}: {warning_explanation(str(code))}")
+    return "\n".join(lines)
 
 
 inject_styles()
@@ -177,6 +308,13 @@ with left_col:
         horizontal=False,
         key="property_type",
         format_func=lambda x: {"Terrain": "🏗️ Terrain (Land)", "Maison": "🏠 Maison (House)", "Appartement": "🏢 Appartement (Apartment)"}[x],
+    )
+    transaction_type = st.radio(
+        "Transaction Type",
+        ["sale", "rent"],
+        horizontal=True,
+        key="transaction_type",
+        format_func=lambda x: {"sale": "💰 Sale", "rent": "📅 Rent"}[x],
     )
 
     governorate = st.selectbox(
@@ -243,6 +381,7 @@ with left_col:
         else:
             payload_state = {
                 "property_type": property_type,
+                "transaction_type": transaction_type,
                 "governorate": governorate,
                 "city": city,
                 "neighborhood": neighborhood,
@@ -257,13 +396,11 @@ with left_col:
                 "elevator": elevator,
                 "description": description,
             }
-            payload = build_payload(payload_state, len(images or []))
-
             prog = st.progress(10, text="Input validated")
             with st.spinner("Running AI valuation analysis..."):
                 prog.progress(45, text="Analyzing market + property features")
                 try:
-                    response = requests.post(f"{API_URL}/estimate", json=payload, timeout=20)
+                    response = post_estimate(payload_state, images or [])
                     response.raise_for_status()
                     st.session_state["results"] = response.json()
                     st.success("✅ Valuation Complete!")
@@ -314,6 +451,18 @@ with center_col:
             """,
             unsafe_allow_html=True,
         )
+        if results.get("prediction_mode") != "model" or results.get("explanation_mode") != "true_shap":
+            st.warning(
+                f"Runtime mode: prediction={results.get('prediction_mode')}, "
+                f"explanation={results.get('explanation_mode')}, "
+                f"sentiment={results.get('sentiment_mode')}, cv={results.get('cv_mode')}"
+            )
+        if results.get("warnings"):
+            warning_codes = [str(item) for item in results["warnings"]]
+            st.caption("Warnings: " + ", ".join(warning_codes[:6]))
+            with st.expander("Warning details", expanded=False):
+                for code in warning_codes[:10]:
+                    st.write(f"- {code}: {warning_explanation(code)}")
 
         impact_df = pd.DataFrame(results["features_impact"])
         impact_df["Label"] = impact_df.apply(
@@ -352,6 +501,7 @@ with center_col:
                         <div><b>📍 {comp['address']}</b></div>
                         <div>Price: {format_tnd(comp['price'])}</div>
                         <div>Size: {comp['size']} m2</div>
+                        <div>Transaction: {str(comp.get('transaction_type', 'unknown')).title()}</div>
                         <div>Similarity: {comp['similarity']}%</div>
                         <div>Difference: {comp['difference']}</div>
                     </div>
@@ -374,7 +524,8 @@ with right_col:
         with st.expander("📝 Text Analysis", expanded=True):
             ta = results["text_analysis"]
             st.write(f"Description quality: {ta['description_quality']}")
-            st.write(f"Sentiment: {ta['sentiment']}")
+            st.write(f"Description sentiment: {ta['description_sentiment']} ({ta['description_sentiment_label']})")
+            st.write(f"Location sentiment: {ta['location_sentiment']} ({ta['location_sentiment_label']})")
             st.write(f"Marketing effectiveness: {ta['marketing_effectiveness']}")
             st.write(f"Key phrases: {', '.join(ta['key_phrases'])}")
 
@@ -383,15 +534,21 @@ with right_col:
             st.write(f"{mc['city']} Average: {mc['avg_m2']:,} TND/m2")
             st.write(f"Your property: {mc['property_m2']:,} TND/m2 ({mc['delta_pct']}%)")
             st.write(f"Market trend: {mc['trend']}")
+            if mc.get("trend_reason"):
+                st.caption(f"Trend note: {mc['trend_reason']}")
             st.write(f"Demand: {mc['demand']}")
 
         st.markdown("#### SHAP Explanation")
         shap_df = pd.DataFrame(results["shap"])
+        measure = ["relative"] * len(shap_df)
+        if len(measure) >= 1:
+            measure[0] = "absolute"
+            measure[-1] = "total"
         shap_fig = go.Figure(
             go.Waterfall(
                 name="SHAP",
                 orientation="v",
-                measure=["absolute", "relative", "relative", "relative", "relative", "total"],
+                measure=measure,
                 x=shap_df["feature"],
                 y=shap_df["value"],
                 connector={"line": {"color": "#94a3b8"}},
@@ -409,9 +566,30 @@ with right_col:
         st.plotly_chart(shap_fig, use_container_width=True)
 
         c1, c2, c3 = st.columns(3)
-        c1.download_button("📄 Download Full Report (PDF)", data=b"EstateMind demo report", file_name="estatemind_report.pdf")
-        c2.button("📧 Email Results", use_container_width=True, help="Demo action")
-        c3.button("🔗 Share Valuation Link", use_container_width=True, help="Demo action")
+        report_md = build_report_markdown(results).encode("utf-8")
+        c1.download_button(
+            "📄 Download Full Report (MD)",
+            data=report_md,
+            file_name="estatemind_report.md",
+            mime="text/markdown",
+            use_container_width=True,
+        )
+        comps_df = pd.DataFrame(results.get("comparables", []))
+        comps_csv = comps_df.to_csv(index=False).encode("utf-8") if not comps_df.empty else b"address,price,size,transaction_type,similarity,difference\n"
+        c2.download_button(
+            "📊 Download Comparables (CSV)",
+            data=comps_csv,
+            file_name="estatemind_comparables.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
+        c3.download_button(
+            "🧾 Download Raw API JSON",
+            data=json.dumps(results, indent=2).encode("utf-8"),
+            file_name="estatemind_response.json",
+            mime="application/json",
+            use_container_width=True,
+        )
 
 st.markdown(
     """

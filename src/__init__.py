@@ -1,0 +1,2 @@
+"""EstateMind backend package."""
+

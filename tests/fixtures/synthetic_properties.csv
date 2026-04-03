@@ -1,0 +1,7 @@
+property_type,transaction_type,governorate,city,neighborhood,size_m2,bedrooms,bathrooms,condition,has_pool,has_garden,has_parking,sea_view,elevator,image_ref,description
+Appartement,sale,Tunis,La Marsa,Sidi Abdelaziz,120,3,2,Excellent,false,true,true,true,true,artifacts/test_assets/open_license_images/cache/apartment_building.jpg,"Appartement renove avec vue mer et cuisine moderne."
+Appartement,sale,Ariana,Ennasr,Cite Ennasr 2,95,2,1,Good,false,false,true,false,true,artifacts/test_assets/open_license_images/cache/apartment_building.jpg,"Appartement lumineux proche commodites."
+Maison,sale,Sousse,Sousse,Khzema,220,4,3,Good,true,true,true,false,false,artifacts/test_assets/open_license_images/cache/house_facade.jpg,"Maison familiale avec jardin et piscine."
+Maison,sale,Nabeul,Hammamet,Zone Touristique,260,5,3,Excellent,true,true,true,true,false,artifacts/test_assets/open_license_images/cache/house_facade.jpg,"Villa haut standing proche plage."
+Terrain,sale,Ariana,Ariana,Raoued,480,0,0,Good,false,false,false,false,false,artifacts/test_assets/open_license_images/cache/land_plot.jpg,"Terrain urbain ideal pour promotion."
+Terrain,sale,Sfax,Sfax,Sakiet Ezzit,900,0,0,Fair,false,false,false,false,false,artifacts/test_assets/open_license_images/cache/land_plot.jpg,"Grand terrain a fort potentiel."
