@@ -26,6 +26,8 @@ def build_response(
     explanation_mode: str,
     sentiment_mode: str,
     cv_mode: str,
+    vision_guidance: list[dict[str, Any]],
+    vision_requires_confirmation: bool,
     warnings: list[str],
     model_info: dict[str, Any],
 ) -> dict[str, Any]:
@@ -49,6 +51,8 @@ def build_response(
         "explanation_mode": explanation_mode,
         "sentiment_mode": sentiment_mode,
         "cv_mode": cv_mode,
+        "vision_guidance": vision_guidance,
+        "vision_requires_confirmation": vision_requires_confirmation,
         "warnings": warnings,
         "uncertainty_reasons": confidence.get("uncertainty_reasons", []),
         "uncertainty_mode": confidence.get("uncertainty_mode", "fallback"),

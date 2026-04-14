@@ -35,15 +35,16 @@ def map_request(payload: Any) -> dict[str, Any]:
     """
 
     image_refs = [str(v) for v in getattr(payload, "image_refs", []) if str(v).strip()]
+    property_type = str(getattr(payload, "property_type", "") or "").strip()
     mapped = {
-        "property_type": str(payload.property_type),
+        "property_type": property_type,
         "transaction_type": str(getattr(payload, "transaction_type", "sale") or "sale").strip().lower(),
         "governorate": str(payload.governorate).strip(),
         "city": str(payload.city).strip(),
         "neighborhood": str(payload.neighborhood).strip(),
         "surface_m2": float(payload.size_m2),
         "size_m2": float(payload.size_m2),
-        "rooms": int(getattr(payload, "bedrooms", 0) or 0) + (1 if str(payload.property_type).strip().lower() != "terrain" else 0),
+        "rooms": int(getattr(payload, "bedrooms", 0) or 0) + (1 if property_type and property_type.lower() != "terrain" else 0),
         "bedrooms": int(payload.bedrooms),
         "bathrooms": int(payload.bathrooms),
         "condition": str(payload.condition),

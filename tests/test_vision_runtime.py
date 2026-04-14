@@ -40,10 +40,11 @@ def test_clip_primary_mode_is_exposed() -> None:
     image_path.parent.mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (128, 128), color=(200, 150, 150)).save(image_path)
     service = ImageTypeClassifierService()
+    service._fallback = _StubPrimary()
     service._clip_classifier = _StubClip()
     rows = service.classify_many([str(image_path)])
     assert rows
-    assert rows[0]["cv_mode"] == "clip_feature_inference"
+    assert rows[0]["cv_mode"] == "notebook_property_type_primary"
 
 
 def test_notebook_fallback_mode_is_exposed(monkeypatch) -> None:
@@ -51,11 +52,11 @@ def test_notebook_fallback_mode_is_exposed(monkeypatch) -> None:
     image_path.parent.mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (128, 128), color=(120, 130, 140)).save(image_path)
     service = ImageTypeClassifierService()
-    monkeypatch.setattr(service, "_ensure_clip", lambda: None)
-    service._fallback = _StubPrimary()
+    monkeypatch.setattr(service, "_ensure_fallback", lambda: None)
+    service._clip_classifier = _StubClip()
     rows = service.classify_many([str(image_path)])
     assert rows
-    assert rows[0]["cv_mode"] == "notebook_property_type_fallback"
+    assert rows[0]["cv_mode"] == "clip_property_type_fallback"
 
 
 def test_vision_aggregation_infers_property_type_from_clip_tags() -> None:
@@ -67,3 +68,47 @@ def test_vision_aggregation_infers_property_type_from_clip_tags() -> None:
     )
     assert result["cv_mode"] == "clip_feature_inference"
     assert result["auto_filled_property_type"] == "Maison"
+
+
+def test_vision_aggregation_triggers_guidance_when_images_are_present() -> None:
+    aggregator = VisionFeatureAggregationService()
+    result = aggregator.aggregate(
+        image_rows=[{"top_prediction": {"label": "property_type_appartement", "score": 0.9}, "cv_mode": "clip_feature_inference"}],
+        quality={"image_count": 1, "quality_score": 0.8, "coverage_score": 0.5},
+        mapped={"property_type": "", "has_pool": False, "has_garden": False, "has_parking": False, "sea_view": False, "elevator": False},
+    )
+    codes = {item.get("code") for item in result.get("vision_guidance", [])}
+    assert "image_guidance_active" in codes
+    assert "property_type_autofilled" in codes
+    assert result["requires_user_confirmation"] is True
+
+
+def test_vision_aggregation_disables_terrain_amenity_guidance() -> None:
+    aggregator = VisionFeatureAggregationService()
+    result = aggregator.aggregate(
+        image_rows=[{"top_prediction": {"label": "swimming_pool", "score": 0.92}, "cv_mode": "clip_feature_inference"}],
+        quality={"image_count": 1, "quality_score": 0.8, "coverage_score": 0.5},
+        mapped={"property_type": "Terrain", "has_pool": True, "has_garden": False, "has_parking": False, "sea_view": False, "elevator": False},
+    )
+    codes = [item.get("code") for item in result.get("vision_guidance", [])]
+    assert "terrain_amenities_disabled" in codes
+    assert "amenity_detected_from_image" not in codes
+
+
+def test_vision_aggregation_does_not_raise_clip_runtime_warning_when_clip_predictions_exist() -> None:
+    aggregator = VisionFeatureAggregationService()
+    result = aggregator.aggregate(
+        image_rows=[
+            {
+                "top_prediction": {"label": "property_type_appartement", "score": 0.92},
+                "cv_mode": "notebook_property_type_primary",
+                "clip_predictions": [
+                    {"label": "living_room", "score": 0.33},
+                    {"label": "kitchen", "score": 0.22},
+                ],
+            }
+        ],
+        quality={"image_count": 1, "quality_score": 0.8, "coverage_score": 0.5},
+        mapped={"property_type": "", "has_pool": False, "has_garden": False, "has_parking": False, "sea_view": False, "elevator": False},
+    )
+    assert "clip_amenity_runtime_unavailable" not in result.get("warnings", [])

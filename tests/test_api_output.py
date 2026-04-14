@@ -9,7 +9,7 @@ from src.api import _valuation_service, app
 def test_estimate_returns_complete_payload() -> None:
     client = TestClient(app)
     payload = {
-        "property_type": "Appartement",
+        "property_type": "",
         "governorate": "Tunis",
         "city": "La Marsa",
         "neighborhood": "Sidi Abdelaziz",
@@ -47,6 +47,8 @@ def test_estimate_returns_complete_payload() -> None:
         "explanation_mode",
         "sentiment_mode",
         "cv_mode",
+        "vision_guidance",
+        "vision_requires_confirmation",
         "warnings",
         "uncertainty_reasons",
         "uncertainty_mode",
@@ -59,6 +61,7 @@ def test_estimate_returns_complete_payload() -> None:
     assert isinstance(body["text_analysis"], dict)
     assert isinstance(body["market_context"], dict)
     assert isinstance(body["shap"], list)
+    assert isinstance(body["vision_guidance"], list)
     assert body["estimated_price"] > 0
     assert body["lower_bound"] < body["upper_bound"]
 
@@ -72,7 +75,7 @@ def test_estimate_upload_accepts_images() -> None:
         response = client.post(
             "/estimate-upload",
             data={
-                "property_type": "Appartement",
+                "property_type": "",
                 "governorate": "Tunis",
                 "city": "La Marsa",
                 "neighborhood": "Sidi Abdelaziz",
@@ -92,7 +95,14 @@ def test_estimate_upload_accepts_images() -> None:
         )
     assert response.status_code == 200
     body = response.json()
-    assert body["cv_mode"] in {"clip_feature_inference", "notebook_property_type_fallback", "no_images"}
+    assert body["cv_mode"] in {
+        "clip_feature_inference",
+        "notebook_property_type_fallback",
+        "notebook_property_type_primary",
+        "clip_property_type_fallback",
+        "no_images",
+    }
+    assert "vision_guidance" in body
 
 
 def test_estimate_upload_adds_clip_property_mismatch_warning(monkeypatch) -> None:
@@ -129,6 +139,50 @@ def test_estimate_upload_adds_clip_property_mismatch_warning(monkeypatch) -> Non
                 "elevator": "true",
                 "description": "Appartement renove avec vue mer exceptionnelle.",
                 "transaction_type": "sale",
+            },
+            files=[("images", ("sample.png", handle.read(), "image/png"))],
+        )
+    assert response.status_code == 409
+    detail = response.json().get("detail", {})
+    assert detail.get("code") == "property_type_conflict_requires_confirmation"
+    assert detail.get("requires_confirmation") is True
+
+
+def test_estimate_upload_allows_confirmed_property_type_conflict(monkeypatch) -> None:
+    def _fake_classify_many(image_refs):
+        return [
+            {
+                "cv_mode": "notebook_property_type_primary",
+                "top_prediction": {"label": "property_type_maison", "score": 0.93},
+            }
+        ]
+
+    monkeypatch.setattr(_valuation_service.image_type, "classify_many", _fake_classify_many)
+
+    client = TestClient(app)
+    image_path = Path("artifacts/test_assets/test_upload_mismatch_confirmed.png")
+    image_path.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (64, 64), color=(180, 180, 200)).save(image_path)
+    with image_path.open("rb") as handle:
+        response = client.post(
+            "/estimate-upload",
+            data={
+                "property_type": "Appartement",
+                "governorate": "Tunis",
+                "city": "La Marsa",
+                "neighborhood": "Sidi Abdelaziz",
+                "size_m2": "120",
+                "bedrooms": "3",
+                "bathrooms": "2",
+                "condition": "Excellent",
+                "has_pool": "false",
+                "has_garden": "true",
+                "has_parking": "true",
+                "sea_view": "true",
+                "elevator": "true",
+                "description": "Appartement renove avec vue mer exceptionnelle.",
+                "transaction_type": "sale",
+                "confirm_visual_conflict": "true",
             },
             files=[("images", ("sample.png", handle.read(), "image/png"))],
         )

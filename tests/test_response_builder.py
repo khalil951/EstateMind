@@ -32,6 +32,8 @@ def test_response_builder_preserves_contract() -> None:
         explanation_mode="true_shap",
         sentiment_mode="transformer",
         cv_mode="resnet50_price_band",
+        vision_guidance=[],
+        vision_requires_confirmation=False,
         warnings=["proxy_price_features_used"],
         model_info={"model_name": "catboost"},
     )

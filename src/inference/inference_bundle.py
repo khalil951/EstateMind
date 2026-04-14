@@ -14,6 +14,7 @@ serving schema is exported.
 from __future__ import annotations
 
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
@@ -60,6 +61,24 @@ class PredictionResult:
     ood_flags: list[str] = field(default_factory=list)
 
 
+def _raw_text_key(value: Any) -> str:
+    if pd.isna(value):
+        return ""
+    return re.sub(r"\s+", " ", str(value).strip().lower())
+
+
+def _normalize_text_key(value: Any) -> str:
+    if pd.isna(value):
+        return ""
+    text = unicodedata.normalize("NFKD", str(value))
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = text.lower().strip()
+    text = text.replace("_", " ").replace("/", " ")
+    text = re.sub(r"[^\w\s]+", " ", text, flags=re.UNICODE)
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
 class _ServingProcessor:
     """Rebuild the CatBoost preprocessing path used during training."""
 
@@ -97,25 +116,35 @@ class _ServingProcessor:
         self.global_price = float(np.nanmean(self.train_prices)) if len(self.train_prices) else 0.0
 
         ppm2 = self.reference_df["price_tnd"] / self.reference_df["surface_m2"].replace({0: np.nan})
-        local_key = self.reference_df["city_governorate"] if "city_governorate" in self.reference_df.columns else self.reference_df["city"]
-        self.local_avg_price_m2 = (
-            pd.DataFrame({"key": local_key, "ppm2": ppm2})
+        self.city_governorate_price_m2 = (
+            pd.DataFrame({"key": self.reference_df.get("city_governorate"), "ppm2": ppm2})
             .dropna(subset=["key", "ppm2"])
+            .assign(key=lambda df: df["key"].map(_normalize_text_key))
             .groupby("key", dropna=True)["ppm2"]
             .median()
             .to_dict()
         )
-
+        self.city_avg_price_m2 = (
+            pd.DataFrame({"key": self.reference_df["city"], "ppm2": ppm2})
+            .dropna(subset=["key", "ppm2"])
+            .assign(key=lambda df: df["key"].map(_normalize_text_key))
+            .groupby("key", dropna=True)["ppm2"]
+            .median()
+            .to_dict()
+        )
         self.gov_avg_price_m2 = (
             pd.DataFrame({"key": self.reference_df["governorate"], "ppm2": ppm2})
             .dropna(subset=["key", "ppm2"])
+            .assign(key=lambda df: df["key"].map(_normalize_text_key))
             .groupby("key", dropna=True)["ppm2"]
             .median()
             .to_dict()
         )
+        self.local_avg_price_m2 = dict(self.city_governorate_price_m2)
 
         city_geo = (
             self.reference_df.dropna(subset=["city", "latitude", "longitude"])
+            .assign(city=lambda df: df["city"].map(_normalize_text_key))
             .groupby("city", dropna=True)[["latitude", "longitude"]]
             .median()
             .reset_index()
@@ -151,24 +180,72 @@ class _ServingProcessor:
                 out[col] = out[col].map(cls._to_num)
         for col in CATEGORICAL_COLUMNS:
             if col in out.columns:
-                out[col] = out[col].astype(str).str.strip().str.lower().replace({"nan": np.nan, "": np.nan})
+                normalized = out[col].map(_normalize_text_key)
+                out[col] = normalized.mask(normalized == "", np.nan)
         if "city" in out.columns and "governorate" in out.columns:
             out["city_governorate"] = out["city"].fillna("unknown") + "__" + out["governorate"].fillna("unknown")
         return out
+
+    def _resolve_price_prior(self, frame: pd.DataFrame) -> tuple[float, list[str], list[str]]:
+        warnings: list[str] = []
+        ood_flags: list[str] = []
+        city_key = "" if pd.isna(frame["city"].iat[0]) else str(frame["city"].iat[0]).strip()
+        gov_key = "" if pd.isna(frame["governorate"].iat[0]) else str(frame["governorate"].iat[0]).strip()
+        exact_key = _normalize_text_key(f"{city_key} {gov_key}") if city_key and gov_key else ""
+
+        if exact_key and exact_key in self.local_avg_price_m2:
+            return float(self.local_avg_price_m2[exact_key]), warnings, ood_flags
+
+        if city_key and city_key in self.city_avg_price_m2:
+            warnings.append("local_price_prior_fallback_city")
+            if gov_key:
+                ood_flags.append("local_price_prior_city_governorate_data_coverage")
+            else:
+                ood_flags.append("local_price_prior_governorate_missing_input")
+            return float(self.city_avg_price_m2[city_key]), warnings, ood_flags
+
+        if gov_key and gov_key in self.gov_avg_price_m2:
+            warnings.append("local_price_prior_fallback_governorate")
+            if city_key:
+                ood_flags.append("local_price_prior_city_data_coverage")
+            else:
+                ood_flags.append("local_price_prior_city_missing_input")
+            return float(self.gov_avg_price_m2[gov_key]), warnings, ood_flags
+
+        warnings.append("local_price_prior_fallback_global")
+        if city_key and gov_key:
+            ood_flags.append("local_price_prior_governorate_data_coverage")
+        else:
+            ood_flags.append("local_price_prior_missing_input")
+        return float(self.global_price), warnings, ood_flags
 
     def transform_request(self, row: dict[str, Any]) -> tuple[pd.DataFrame, list[str], list[str]]:
         """Transform one request row into CatBoost-ready features."""
 
         warnings: list[str] = []
         ood_flags: list[str] = []
+        raw_city_key = _raw_text_key(row.get("city"))
+        raw_gov_key = _raw_text_key(row.get("governorate"))
         frame = pd.DataFrame([row])
         frame = self._clean(frame)
 
-        if frame["city"].iat[0] not in self.city_geo_lookup and frame.get("latitude", pd.Series([np.nan])).isna().iat[0]:
-            ood_flags.append("unknown_city")
+        city_key = "" if pd.isna(frame["city"].iat[0]) else str(frame["city"].iat[0]).strip()
+        gov_key = "" if pd.isna(frame["governorate"].iat[0]) else str(frame["governorate"].iat[0]).strip()
+
+        if raw_city_key and raw_city_key != city_key and city_key:
+            warnings.append("city_normalization_applied")
+        if raw_gov_key and raw_gov_key != gov_key and gov_key:
+            warnings.append("governorate_normalization_applied")
+
+        if city_key not in self.city_geo_lookup and frame.get("latitude", pd.Series([np.nan])).isna().iat[0]:
+            warnings.append("geo_lookup_missing")
+            if city_key:
+                ood_flags.append("unknown_city_data_coverage")
+            else:
+                ood_flags.append("unknown_city_missing_input")
         if "surface_m2" in self.quantiles:
             lo, hi = self.quantiles["surface_m2"]
-            surface = float(frame["surface_m2"].iat[0])
+            surface = float(frame["surface_m2"].iat[0]) #type:ignore
             if surface < lo or surface > hi:
                 ood_flags.append("surface_out_of_range")
 
@@ -177,7 +254,7 @@ class _ServingProcessor:
         if "longitude" not in frame.columns:
             frame["longitude"] = np.nan
         if pd.isna(frame["latitude"].iat[0]) or pd.isna(frame["longitude"].iat[0]):
-            coords = self.city_geo_lookup.get(str(frame["city"].iat[0]))
+            coords = self.city_geo_lookup.get(city_key)
             if coords:
                 frame.at[0, "latitude"] = coords[0]
                 frame.at[0, "longitude"] = coords[1]
@@ -197,19 +274,22 @@ class _ServingProcessor:
                 frame[col] = fill_val
 
         frame["city_governorate"] = frame["city"].fillna("unknown") + "__" + frame["governorate"].fillna("unknown")
-        frame["local_avg_price_m2"] = frame["city_governorate"].map(self.local_avg_price_m2)
+        frame["city_governorate_lookup_key"] = (
+            frame["city"].fillna("").astype(str) + " " + frame["governorate"].fillna("").astype(str)
+        ).map(_normalize_text_key)
+        frame["local_avg_price_m2"] = frame["city_governorate_lookup_key"].map(self.local_avg_price_m2)
         if frame["local_avg_price_m2"].isna().any():
-            frame["local_avg_price_m2"] = frame["local_avg_price_m2"].fillna(np.nanmedian(list(self.local_avg_price_m2.values())) if self.local_avg_price_m2 else 0.0)
-            warnings.append("local_price_prior_fallback")
-            ood_flags.append("local_price_prior_fallback")
+            local_prior, prior_warnings, prior_ood_flags = self._resolve_price_prior(frame)
+            frame["local_avg_price_m2"] = frame["local_avg_price_m2"].fillna(local_prior)
+            warnings.extend(prior_warnings)
+            ood_flags.extend(prior_ood_flags)
 
         frame["gov_avg_price_m2"] = frame["governorate"].map(self.gov_avg_price_m2)
         if frame["gov_avg_price_m2"].isna().any():
-            frame["gov_avg_price_m2"] = frame["gov_avg_price_m2"].fillna(
-                np.nanmedian(list(self.gov_avg_price_m2.values())) if self.gov_avg_price_m2 else 0.0
-            )
-            warnings.append("gov_price_prior_fallback")
-            ood_flags.append("gov_price_prior_fallback")
+            frame["gov_avg_price_m2"] = frame["gov_avg_price_m2"].fillna(self.gov_avg_price_m2.get(gov_key, self.global_price))
+            if gov_key and gov_key not in self.gov_avg_price_m2:
+                warnings.append("gov_price_prior_fallback")
+                ood_flags.append("governorate_price_prior_data_coverage")
 
         coords = frame[["latitude", "longitude"]].apply(pd.to_numeric, errors="coerce")
         valid = coords.notna().all(axis=1)

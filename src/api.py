@@ -8,7 +8,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, List, Literal
 
-from fastapi import FastAPI, File, Form, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
 from src.inference.valuation_service import ValuationService
@@ -26,6 +26,8 @@ def _parse_bool(value: str | bool) -> bool:
 
 def _build_upload_consistency_warnings(selected_property_type: str, image_refs: list[str]) -> list[str]:
     if not image_refs:
+        return []
+    if not str(selected_property_type).strip():
         return []
 
     rows = _valuation_service.image_type.classify_many(image_refs)
@@ -56,10 +58,26 @@ def _build_upload_consistency_warnings(selected_property_type: str, image_refs: 
     ]
 
 
+def _infer_image_property_type(rows: list[dict[str, Any]]) -> str:
+    inferred_candidates: list[str] = []
+    for row in rows:
+        top = row.get("top_prediction") or {}
+        label = str(top.get("label", "")).strip()
+        if label in {"Terrain", "Maison", "Appartement"}:
+            inferred_candidates.append(label)
+            continue
+        inferred = PROPERTY_HINT_MAP.get(label)
+        if inferred:
+            inferred_candidates.append(inferred)
+    if not inferred_candidates:
+        return ""
+    return Counter(inferred_candidates).most_common(1)[0][0]
+
+
 class PropertyRequest(BaseModel):
     """Validated property payload accepted by the JSON and upload endpoints."""
 
-    property_type: Literal["Terrain", "Maison", "Appartement"]
+    property_type: Literal["", "Terrain", "Maison", "Appartement"] = ""
     governorate: str
     city: str
     neighborhood: str = ""
@@ -98,6 +116,8 @@ class ValuationResponse(BaseModel):
     explanation_mode: str
     sentiment_mode: str
     cv_mode: str
+    vision_guidance: list[dict[str, Any]]
+    vision_requires_confirmation: bool
     warnings: List[str]
     uncertainty_reasons: List[str]
     uncertainty_mode: str
@@ -121,7 +141,7 @@ def estimate_price(payload: PropertyRequest) -> ValuationResponse:
 
 @app.post("/estimate-upload", response_model=ValuationResponse)
 def estimate_price_upload(
-    property_type: Literal["Terrain", "Maison", "Appartement"] = Form(...),
+    property_type: str = Form(""),
     governorate: str = Form(...),
     city: str = Form(...),
     neighborhood: str = Form(""),
@@ -136,6 +156,7 @@ def estimate_price_upload(
     elevator: str = Form("false"),
     description: str = Form(""),
     transaction_type: Literal["sale", "rent"] = Form("sale"),
+    confirm_visual_conflict: str = Form("false"),
     images: list[UploadFile] | None = File(default=None),
 ) -> ValuationResponse:
     """Accept multipart uploads, persist images temporarily, and estimate value."""
@@ -170,7 +191,34 @@ def estimate_price_upload(
             image_refs=image_refs,
             transaction_type=transaction_type,
         )
-        external_warnings = _build_upload_consistency_warnings(property_type, image_refs)
+        rows = _valuation_service.image_type.classify_many(image_refs)
+        inferred_property_type = _infer_image_property_type(rows)
+        selected_property_type = str(property_type or "").strip()
+        has_conflict = bool(
+            selected_property_type
+            and inferred_property_type
+            and selected_property_type != inferred_property_type
+        )
+        if has_conflict and not _parse_bool(confirm_visual_conflict):
+            raise HTTPException(
+                status_code=409,
+                detail={
+                    "code": "property_type_conflict_requires_confirmation",
+                    "message": (
+                        f"Selected property type '{selected_property_type}' conflicts with image inference "
+                        f"('{inferred_property_type}'). Confirm correction before estimation."
+                    ),
+                    "selected_property_type": selected_property_type,
+                    "inferred_property_type": inferred_property_type,
+                    "requires_confirmation": True,
+                },
+            )
+
+        external_warnings = []
+        if has_conflict:
+            external_warnings.append(
+                f"clip_property_type_mismatch:selected={selected_property_type},inferred={inferred_property_type}"
+            )
         result = _valuation_service.estimate(payload, external_warnings=external_warnings)
         return ValuationResponse(**result)
     finally:

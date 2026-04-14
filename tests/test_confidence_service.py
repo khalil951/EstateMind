@@ -32,3 +32,21 @@ def test_confidence_service_rewards_richer_evidence() -> None:
     assert rich["confidence"] > sparse["confidence"]
     assert (rich["upper_bound"] - rich["lower_bound"]) < (sparse["upper_bound"] - sparse["lower_bound"])
     assert "heuristic_prediction_mode" in sparse["uncertainty_reasons"]
+
+
+def test_confidence_service_accepts_new_image_cv_modes() -> None:
+    service = ConfidenceService()
+    result = service.estimate(
+        estimated_price=300000,
+        fused={
+            "summary": {"input_completeness": 1.0, "sentiment_mode": "transformer"},
+            "vision": {"quality": {"coverage_score": 1.0}, "cv_mode": "clip_feature_inference"},
+            "nlp": {"description_score": 0.9},
+        },
+        comparables=[{"similarity": 90}] * 4,
+        model_handle=None,
+        prediction_mode="model",
+        warnings=[],
+        ood_flags=[],
+    )
+    assert not any(item.startswith("cv_mode:") for item in result["uncertainty_reasons"])

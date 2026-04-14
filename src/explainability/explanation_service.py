@@ -38,6 +38,10 @@ class ExplanationService:
             lines.append(f"The strongest driver that {direction} the estimate was {top['feature'].lower()}.")
         if comparables:
             lines.append(f"The estimate is grounded against {len(comparables)} comparable listing(s) from the local dataset.")
+        lines.append(
+            "Confidence combines model reliability, input completeness, image coverage, text quality, and comparable support; "
+            f"the resulting score is {confidence.get('confidence', 0)}% ({confidence.get('confidence_level', 'Unknown')})."
+        )
         if explanation_mode != "true_shap":
             lines.append("Feature attribution is in fallback mode, so the SHAP waterfall should be read as an approximate explanation.")
         if fused["summary"].get("sentiment_mode") not in {"tfidf_primary", "transformer"}:
@@ -48,6 +52,11 @@ class ExplanationService:
                 lines.append(f"The image model placed the listing photos in the {str(band).replace('_', ' ')} bucket.")
         elif fused["vision"].get("quality", {}).get("image_count", 0) == 0:
             lines.append("No property photos were available, so visual evidence did not strengthen the estimate.")
+
+        clip_amenities = list(fused["vision"].get("clip_detected_amenities") or [])
+        if clip_amenities:
+            pretty = ", ".join(item.replace("_", " ") for item in clip_amenities[:5])
+            lines.append(f"CLIP detected amenity evidence for: {pretty}.")
 
         reason_strings = confidence.get("uncertainty_reasons", [])
         if reason_strings:

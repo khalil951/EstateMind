@@ -45,9 +45,16 @@ class ConfidenceService:
         if sentiment_mode not in {"tfidf_primary", "transformer"}:
             base_quality -= 0.03
             uncertainty_reasons.append(f"sentiment_mode:{sentiment_mode}")
-        if fused["vision"].get("cv_mode") != "resnet50_price_band" and image_score > 0:
+        cv_mode = str(fused["vision"].get("cv_mode", "no_images"))
+        if image_score > 0 and cv_mode not in {
+            "resnet50_price_band",
+            "clip_feature_inference",
+            "notebook_property_type_fallback",
+            "notebook_property_type_primary",
+            "clip_property_type_fallback",
+        }:
             base_quality -= 0.03
-            uncertainty_reasons.append(f"cv_mode:{fused['vision'].get('cv_mode')}")
+            uncertainty_reasons.append(f"cv_mode:{cv_mode}")
         if not comparables:
             uncertainty_reasons.append("no_comparables")
         if completeness < 0.8:

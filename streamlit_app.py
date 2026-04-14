@@ -32,6 +32,12 @@ WARNING_LOOKUP = {
     "explainability_fallback": "Feature contributions are generated via fallback heuristics because true model SHAP output was unavailable.",
     "property_specific_bundle_unavailable": "The property-type-specific serving bundle could not be loaded, so a broader fallback model was used.",
     "proxy_price_features_used": "Some model features were reconstructed from market proxies, which can increase uncertainty.",
+    "clip_amenity_runtime_unavailable": "Amenity verification from CLIP could not run for this request, so amenity anomaly checks may be incomplete.",
+    "notebook_property_type_unavailable": "Notebook property-type classifier was unavailable; CLIP fallback was used for property-type inference.",
+    "geo_lookup_missing": "City coordinates were not found in the geo reference table; distance-based location features used fallback coordinates.",
+    "local_price_prior_fallback_governorate": "City-level local price prior was unavailable, so a governorate-level prior was used.",
+    "ood:local_price_prior_city_data_coverage": "City-level price prior coverage is weak for this request, increasing prior uncertainty.",
+    "ood:unknown_city_data_coverage": "The requested city has limited or no representation in training/reference data.",
 }
 
 def resolve_api_url() -> str:
@@ -163,7 +169,7 @@ def build_payload(state: Dict, image_count: int) -> Dict:
     }
 
 
-def post_estimate(state: Dict, images: List) -> requests.Response:
+def post_estimate(state: Dict, images: List, confirm_visual_conflict: bool = False) -> requests.Response:
     data = {
         "property_type": state["property_type"],
         "transaction_type": state["transaction_type"],
@@ -180,6 +186,7 @@ def post_estimate(state: Dict, images: List) -> requests.Response:
         "sea_view": str(bool(state["sea_view"])).lower(),
         "elevator": str(bool(state.get("elevator", False))).lower(),
         "description": state["description"],
+        "confirm_visual_conflict": str(bool(confirm_visual_conflict)).lower(),
     }
     if images:
         files = []
@@ -215,6 +222,24 @@ def try_sample_prefill() -> None:
     st.session_state["sea_view"] = True
     st.session_state["elevator"] = True
     st.session_state["description"] = "Appartement renove avec vue mer exceptionnelle, cuisine moderne et emplacement premium a La Marsa."
+
+
+def _on_property_type_change() -> None:
+    if st.session_state.get("property_type") == "Terrain":
+        st.session_state["has_pool"] = False
+        st.session_state["has_garden"] = False
+        st.session_state["has_parking"] = False
+        st.session_state["sea_view"] = False
+
+
+def _property_type_conflict_signature(selected_property_type: str, images: List[Any]) -> str:
+    parts = [str(selected_property_type or "").strip()]
+    for img in list(images or [])[:5]:
+        try:
+            parts.append(f"{img.name}:{len(img.getvalue())}")
+        except Exception:
+            parts.append(str(getattr(img, "name", "unknown")))
+    return "|".join(parts)
 
 
 def confidence_color(level: str) -> str:
@@ -275,6 +300,10 @@ if "results" not in st.session_state:
     st.session_state["results"] = None
 if "carousel_start" not in st.session_state:
     st.session_state["carousel_start"] = 0
+if "property_type_conflict" not in st.session_state:
+    st.session_state["property_type_conflict"] = None
+if "property_type_conflict_signature" not in st.session_state:
+    st.session_state["property_type_conflict_signature"] = ""
 
 st.markdown(
     """
@@ -307,6 +336,7 @@ with left_col:
         ["Terrain", "Maison", "Appartement"],
         horizontal=False,
         key="property_type",
+        on_change=_on_property_type_change,
         format_func=lambda x: {"Terrain": "🏗️ Terrain (Land)", "Maison": "🏠 Maison (House)", "Appartement": "🏢 Appartement (Apartment)"}[x],
     )
     transaction_type = st.radio(
@@ -335,12 +365,15 @@ with left_col:
 
     condition = st.selectbox("Condition", ["New", "Excellent", "Good", "Fair", "Needs Renovation"], key="condition")
 
-    st.markdown("#### Features")
-    has_pool = st.checkbox("Has Pool", key="has_pool")
-    has_garden = st.checkbox("Has Garden", key="has_garden")
-    has_parking = st.checkbox("Has Parking", key="has_parking")
-    sea_view = st.checkbox("Sea View", key="sea_view")
+    st.markdown("#### Amenities")
+    terrain_selected = property_type == "Terrain"
+    has_pool = st.checkbox("Has Pool", key="has_pool", disabled=terrain_selected)
+    has_garden = st.checkbox("Has Garden", key="has_garden", disabled=terrain_selected)
+    has_parking = st.checkbox("Has Parking", key="has_parking", disabled=terrain_selected)
+    sea_view = st.checkbox("Sea View", key="sea_view", disabled=terrain_selected)
     elevator = st.checkbox("Elevator", value=False, key="elevator", disabled=property_type != "Appartement")
+    if terrain_selected:
+        st.caption("Amenities are disabled for Terrain listings.")
 
     images = st.file_uploader(
         "Upload Property Images (Max 5)",
@@ -357,6 +390,25 @@ with left_col:
                 img = Image.open(BytesIO(img_file.read()))
                 thumbs[idx % len(thumbs)].image(img, use_container_width=True)
 
+    current_conflict_signature = _property_type_conflict_signature(property_type, images or [])
+    if st.session_state.get("property_type_conflict") and (
+        st.session_state.get("property_type_conflict_signature") != current_conflict_signature
+    ):
+        st.session_state["property_type_conflict"] = None
+        st.session_state["property_type_conflict_signature"] = ""
+
+    persisted_conflict = st.session_state.get("property_type_conflict") or {}
+    if persisted_conflict:
+        conflict_message = str(
+            persisted_conflict.get("message")
+            or "Property type conflict detected between manual selection and image inference."
+        )
+        selected_conflict = str(persisted_conflict.get("selected_property_type") or "")
+        inferred_conflict = str(persisted_conflict.get("inferred_property_type") or "")
+        st.warning(conflict_message)
+        if selected_conflict and inferred_conflict:
+            st.info(f"Selected: {selected_conflict} | Inferred from images: {inferred_conflict}")
+
     description = st.text_area(
         "Property Description (Arabic, French, or English)",
         placeholder="Describe your property...",
@@ -365,6 +417,12 @@ with left_col:
     )
 
     estimate_clicked = st.button("🔍 Estimate Price", type="primary", use_container_width=True)
+    confirm_visual_conflict = st.checkbox(
+        "Proceed even if image-inferred property type conflicts",
+        value=False,
+        key="confirm_visual_conflict",
+        help="When enabled, estimation continues even if uploaded images suggest another property type.",
+    )
 
     if estimate_clicked:
         errors: List[str] = []
@@ -400,11 +458,28 @@ with left_col:
             with st.spinner("Running AI valuation analysis..."):
                 prog.progress(45, text="Analyzing market + property features")
                 try:
-                    response = post_estimate(payload_state, images or [])
-                    response.raise_for_status()
-                    st.session_state["results"] = response.json()
-                    st.success("✅ Valuation Complete!")
-                    prog.progress(100, text="Results ready")
+                    response = post_estimate(
+                        payload_state,
+                        images or [],
+                        confirm_visual_conflict=confirm_visual_conflict,
+                    )
+                    if response.status_code == 409:
+                        detail = response.json().get("detail", {})
+                        st.session_state["property_type_conflict"] = detail
+                        st.session_state["property_type_conflict_signature"] = current_conflict_signature
+                        message = str(detail.get("message") or "Property type conflict detected from uploaded images.")
+                        inferred = str(detail.get("inferred_property_type") or "")
+                        selected = str(detail.get("selected_property_type") or "")
+                        st.warning(message)
+                        if selected and inferred:
+                            st.info(f"Selected: {selected} | Inferred from images: {inferred}")
+                    else:
+                        response.raise_for_status()
+                        st.session_state["property_type_conflict"] = None
+                        st.session_state["property_type_conflict_signature"] = ""
+                        st.session_state["results"] = response.json()
+                        st.success("✅ Valuation Complete!")
+                        prog.progress(100, text="Results ready")
                 except requests.RequestException as exc:
                     st.error(f"Could not reach valuation API at {API_URL}. Details: {exc}")
 

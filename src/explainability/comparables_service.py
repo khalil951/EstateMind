@@ -73,21 +73,43 @@ class ComparablesService:
             return "Unavailable", f"Insufficient dated samples for trend calculation ({len(trend_df)} found)"
 
         trend_df = trend_df.sort_values("timestamp")
-        split_idx = max(int(len(trend_df) * 0.7), 1)
-        earlier = float(trend_df.iloc[:split_idx]["price_per_m2"].median())
-        recent_slice = trend_df.iloc[split_idx:]
-        if recent_slice.empty:
-            return "Unavailable", "Insufficient recent samples for trend comparison"
-        recent = float(recent_slice["price_per_m2"].median())
+        thirds = max(int(len(trend_df) / 3), 1)
+        earlier = float(trend_df.iloc[:thirds]["price_per_m2"].median())
+        recent = float(trend_df.iloc[-thirds:]["price_per_m2"].median())
         if earlier <= 0:
             return "Unavailable", "Invalid historical baseline for trend comparison"
 
         delta_pct = ((recent / earlier) - 1.0) * 100.0
-        if delta_pct >= 3.0:
-            return "Rising", f"Recent median price/m2 is {delta_pct:.1f}% above earlier period"
-        if delta_pct <= -3.0:
-            return "Softening", f"Recent median price/m2 is {abs(delta_pct):.1f}% below earlier period"
-        return "Stable", f"Median price/m2 shift is {delta_pct:.1f}% across comparable periods"
+        monthly = (
+            trend_df.set_index("timestamp")["price_per_m2"]
+            .resample("MS")
+            .median()
+            .dropna()
+        )
+        volatility = float(monthly.pct_change().dropna().std()) if len(monthly) >= 3 else 0.0
+
+        if delta_pct >= 6.0:
+            trend = "Rising"
+        elif delta_pct <= -6.0:
+            trend = "Softening"
+        else:
+            trend = "Stable"
+        if volatility >= 0.12 and trend != "Unavailable":
+            trend = "Volatile"
+
+        return trend, (
+            f"Recent vs early median shift is {delta_pct:.1f}% across {len(trend_df)} dated samples"
+            f" (monthly volatility {volatility:.2f})."
+        )
+
+    @staticmethod
+    def _subset_median_ppm(subset: pd.DataFrame) -> tuple[float, int]:
+        if subset.empty or "price_per_m2" not in subset.columns:
+            return 0.0, 0
+        ppm = pd.to_numeric(subset["price_per_m2"], errors="coerce").dropna()
+        if ppm.empty:
+            return 0.0, 0
+        return float(ppm.median()), int(len(ppm))
 
     def _similarity(self, row: pd.Series, mapped: dict[str, Any]) -> int:
         """Score how similar one historical listing is to the request."""
@@ -144,21 +166,60 @@ class ComparablesService:
         df = self._df
         city_mask = df["city"].astype(str).str.strip().str.lower() == str(mapped["city"]).strip().lower()
         type_mask = df["property_type"].astype(str).str.strip().str.lower() == str(mapped["property_type"]).strip().lower()
-        subset = df[city_mask & type_mask]
-        if subset.empty:
-            subset = df[type_mask]
-        if subset.empty:
-            subset = df
-        avg_m2 = int(round(float(subset["price_per_m2"].dropna().median()))) if subset["price_per_m2"].notna().any() else max(int(predicted_per_m2 * 0.93), 1)
-        sample_size = int(len(subset))
-        trend, trend_reason = self._derive_trend(subset)
+        sale_only = self._normalize_transaction_type(mapped.get("transaction_type")) == "sale"
+        if sale_only and "transaction_type" in df.columns:
+            tx_mask = df["transaction_type"].map(self._normalize_transaction_type) == "sale"
+        else:
+            tx_mask = pd.Series(True, index=df.index)
+        gov_mask = df["governorate"].astype(str).str.strip().str.lower() == str(mapped["governorate"]).strip().lower()
+
+        city_type_subset = df[city_mask & type_mask & tx_mask]
+        city_subset = df[city_mask & tx_mask]
+        gov_type_subset = df[gov_mask & type_mask & tx_mask]
+        type_subset = df[type_mask & tx_mask]
+        tx_subset = df[tx_mask]
+
+        primary_subset = city_type_subset
+        if primary_subset.empty:
+            primary_subset = city_subset
+        if primary_subset.empty:
+            primary_subset = gov_type_subset
+        if primary_subset.empty:
+            primary_subset = type_subset
+        if primary_subset.empty:
+            primary_subset = tx_subset
+        if primary_subset.empty:
+            primary_subset = df
+
+        primary_median, primary_n = self._subset_median_ppm(primary_subset)
+        prior_median, _ = self._subset_median_ppm(type_subset if not type_subset.empty else tx_subset)
+        if primary_median <= 0:
+            primary_median = float(max(int(predicted_per_m2 * 0.93), 1))
+        if prior_median <= 0:
+            prior_median = primary_median
+
+        # Bayesian-style smoothing reduces noise for thin city samples.
+        alpha = 18.0
+        smoothed_avg = ((primary_median * primary_n) + (prior_median * alpha)) / max(primary_n + alpha, 1.0)
+        avg_m2 = int(round(smoothed_avg)) if smoothed_avg > 0 else max(int(predicted_per_m2 * 0.93), 1)
+
+        trend_subset = city_subset if len(city_subset) >= 8 else primary_subset
+        trend, trend_reason = self._derive_trend(trend_subset)
+        sample_size = int(len(primary_subset))
+        scope_name = "city+type" if primary_subset is city_type_subset else (
+            "city" if primary_subset is city_subset else (
+                "governorate+type" if primary_subset is gov_type_subset else (
+                    "type" if primary_subset is type_subset else "transaction"
+                )
+            )
+        )
         return {
             "avg_m2": avg_m2,
             "property_m2": int(predicted_per_m2),
             "delta_pct": round(((predicted_per_m2 / max(avg_m2, 1)) - 1) * 100),
             "trend": trend,
             "trend_reason": trend_reason,
-            "demand": f"{sample_size} comparable listing(s) in scope",
+            "demand": f"{sample_size} comparable listing(s) in {scope_name} scope",
             "city": mapped["city"],
         }
 

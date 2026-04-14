@@ -66,9 +66,9 @@ class ValuationService:
         vision: dict[str, Any],
         sentiment: dict[str, Any],
     ) -> tuple[int, int]:
-        cv_signal = float(vision.get("price_band_effect", 0.0)) * float(vision.get("price_band_confidence", 0.0)) * 0.04
+        _ = vision
         sentiment_signal = (float(sentiment.get("description_sentiment", 0.5)) - 0.5) * 0.03
-        factor = max(0.92, min(1.08, 1.0 + cv_signal + sentiment_signal))
+        factor = max(0.96, min(1.04, 1.0 + sentiment_signal))
         refined_price = int(round(estimated_price * factor))
         refined_ppm = int(round(price_per_m2 * factor))
         return max(refined_price, 1), max(refined_ppm, 1)
@@ -77,14 +77,27 @@ class ValuationService:
     def _apply_cv_autofill(mapped: dict[str, Any], vision: dict[str, Any]) -> None:
         """Fill missing structured inputs from CLIP inference when applicable."""
 
+        original_property = str(mapped.get("property_type", "")).strip()
         auto_property = str(vision.get("auto_filled_property_type", "")).strip()
         if auto_property and str(mapped.get("property_type", "")).strip().lower() in {"", "unknown", "auto"}:
             mapped["property_type"] = auto_property
+            mapped["rooms"] = int(mapped.get("bedrooms", 0) or 0) + (0 if auto_property.lower() == "terrain" else 1)
+        elif original_property and original_property.lower() == "terrain":
+            mapped["rooms"] = int(mapped.get("bedrooms", 0) or 0)
 
         auto_amenities = dict(vision.get("auto_filled_amenities") or {})
         for field in ("has_pool", "has_garden", "has_parking", "sea_view", "elevator"):
             if field in auto_amenities and not bool(mapped.get(field)):
                 mapped[field] = bool(auto_amenities[field])
+
+        # Terrain listings must not carry residential amenities.
+        if str(mapped.get("property_type", "")).strip().lower() == "terrain":
+            terrain_fields = ("has_pool", "has_garden", "has_parking", "sea_view", "elevator")
+            had_terrain_amenities = any(bool(mapped.get(field)) for field in terrain_fields)
+            for field in terrain_fields:
+                mapped[field] = False
+            if had_terrain_amenities:
+                mapped["_terrain_amenities_disabled"] = True
 
     def estimate(self, payload: Any, external_warnings: list[str] | None = None) -> dict[str, Any]:
         mapped = map_request(payload)
@@ -189,6 +202,10 @@ class ValuationService:
         )
 
         all_warnings = sorted(set(base_warnings + prediction_warnings + vision.get("warnings", []) + shap_warnings))
+        if mapped.get("_terrain_amenities_disabled"):
+            all_warnings = sorted(set(all_warnings + ["terrain_amenities_disabled"]))
+        vision_guidance = list(vision.get("vision_guidance", []) or [])
+        vision_requires_confirmation = bool(vision.get("requires_user_confirmation", False))
         ai_explanation = self.explanation.build(
             estimated_price=estimated_price,
             confidence=confidence,
@@ -225,6 +242,8 @@ class ValuationService:
             explanation_mode=explanation_mode,
             sentiment_mode=description_sentiment["sentiment_mode"],
             cv_mode=vision.get("cv_mode", "no_images"),
+            vision_guidance=vision_guidance,
+            vision_requires_confirmation=vision_requires_confirmation,
             warnings=all_warnings,
             model_info=model_info,
         )
