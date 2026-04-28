@@ -35,7 +35,19 @@ def map_request(payload: Any) -> dict[str, Any]:
     """
 
     image_refs = [str(v) for v in getattr(payload, "image_refs", []) if str(v).strip()]
-    property_type = str(getattr(payload, "property_type", "") or "").strip()
+    property_type_raw = str(getattr(payload, "property_type", "") or "").strip()
+
+    def _normalize_property_type(value: str) -> str:
+        text = str(value or "").strip().lower()
+        if text in {"terrain", "land", "lot"}:
+            return "Terrain"
+        if text in {"maison", "house", "villa"}:
+            return "Maison"
+        if text in {"appartement", "apartment", "flat"}:
+            return "Appartement"
+        return value
+
+    property_type = _normalize_property_type(property_type_raw)
     mapped = {
         "property_type": property_type,
         "transaction_type": str(getattr(payload, "transaction_type", "sale") or "sale").strip().lower(),
@@ -44,7 +56,7 @@ def map_request(payload: Any) -> dict[str, Any]:
         "neighborhood": str(payload.neighborhood).strip(),
         "surface_m2": float(payload.size_m2),
         "size_m2": float(payload.size_m2),
-        "rooms": int(getattr(payload, "bedrooms", 0) or 0) + (1 if property_type and property_type.lower() != "terrain" else 0),
+        "rooms": int(getattr(payload, "bedrooms", 0) or 0) + (1 if property_type and str(property_type).strip().lower() != "terrain" else 0),
         "bedrooms": int(payload.bedrooms),
         "bathrooms": int(payload.bathrooms),
         "condition": str(payload.condition),
