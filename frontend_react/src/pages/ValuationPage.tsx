@@ -80,6 +80,20 @@ type ComparableView = {
   difference: number | null;
 };
 
+function mapPropertyTypeLabel(value: string): string {
+  const normalized = value.trim().toLowerCase();
+  if (normalized === "maison" || normalized === "house") {
+    return "House";
+  }
+  if (normalized === "appartement" || normalized === "apartment" || normalized === "appartment") {
+    return "Appartment";
+  }
+  if (normalized === "terrain" || normalized === "land") {
+    return "Land";
+  }
+  return value;
+}
+
 function parseConflictWarning(err: unknown): ConflictWarning | null {
   if (!(err instanceof Error) || !err.message) {
     return null;
@@ -100,8 +114,12 @@ function parseConflictWarning(err: unknown): ConflictWarning | null {
     }
 
     return {
-      selectedPropertyType: typeof detail.selected_property_type === "string" ? detail.selected_property_type : "your selected type",
-      inferredPropertyType: typeof detail.inferred_property_type === "string" ? detail.inferred_property_type : "the inferred type",
+      selectedPropertyType: typeof detail.selected_property_type === "string"
+        ? mapPropertyTypeLabel(detail.selected_property_type)
+        : "your selected type",
+      inferredPropertyType: typeof detail.inferred_property_type === "string"
+        ? mapPropertyTypeLabel(detail.inferred_property_type)
+        : "the inferred type",
       message: typeof detail.message === "string" ? detail.message : "The selected property type conflicts with image inference.",
     };
   } catch {
@@ -181,6 +199,24 @@ export default function ValuationPage() {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
+  // When property type is Land/Terrain, disable and clear residential amenities
+  useEffect(() => {
+    const p = String(form.property_type || "").trim().toLowerCase();
+    const isLand = p === "terrain" || p === "land" || p === "lot";
+    if (isLand) {
+      setForm((prev) => ({
+        ...prev,
+        has_pool: false,
+        has_garden: false,
+        has_parking: false,
+        sea_view: false,
+        elevator: false,
+      }));
+    }
+  }, [form.property_type]);
+
+  const isLand = String(form.property_type || "").trim().toLowerCase() === "terrain" || String(form.property_type || "").trim().toLowerCase() === "land" || String(form.property_type || "").trim().toLowerCase() === "lot";
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -248,7 +284,7 @@ export default function ValuationPage() {
       `Generated at: ${new Date().toLocaleString()}`,
       "",
       "Property Inputs",
-      `- Type: ${form.property_type || "Unknown"}`,
+      `- Type: ${mapPropertyTypeLabel(form.property_type || "Unknown")}`,
       `- Location: ${form.city || "N/A"}, ${form.governorate || "N/A"}`,
       `- Neighborhood: ${form.neighborhood || "N/A"}`,
       `- Size: ${form.size_m2} m2 | Bedrooms: ${form.bedrooms} | Bathrooms: ${form.bathrooms}`,
@@ -513,9 +549,9 @@ export default function ValuationPage() {
           Property Type
           <select value={form.property_type} onChange={(e) => update("property_type", e.target.value as PropertyRequest["property_type"])}>
             <option value="">Unknown</option>
-            <option value="Terrain">Terrain</option>
-            <option value="Maison">Maison</option>
-            <option value="Appartement">Appartement</option>
+            <option value="Terrain">Land</option>
+            <option value="Maison">House</option>
+            <option value="Appartement">Appartment</option>
           </select>
         </label>
         <label>
@@ -567,6 +603,8 @@ export default function ValuationPage() {
                 type="checkbox"
                 checked={form.has_pool}
                 onChange={(e) => update("has_pool", e.target.checked)}
+                disabled={isLand}
+                aria-disabled={isLand}
               />
               Has swimming pool
             </label>
@@ -575,6 +613,8 @@ export default function ValuationPage() {
                 type="checkbox"
                 checked={form.has_garden}
                 onChange={(e) => update("has_garden", e.target.checked)}
+                disabled={isLand}
+                aria-disabled={isLand}
               />
               Has garden
             </label>
@@ -583,6 +623,8 @@ export default function ValuationPage() {
                 type="checkbox"
                 checked={form.has_parking}
                 onChange={(e) => update("has_parking", e.target.checked)}
+                disabled={isLand}
+                aria-disabled={isLand}
               />
               Has parking
             </label>
@@ -591,6 +633,8 @@ export default function ValuationPage() {
                 type="checkbox"
                 checked={form.sea_view}
                 onChange={(e) => update("sea_view", e.target.checked)}
+                disabled={isLand}
+                aria-disabled={isLand}
               />
               Sea view
             </label>
@@ -599,6 +643,8 @@ export default function ValuationPage() {
                 type="checkbox"
                 checked={form.elevator}
                 onChange={(e) => update("elevator", e.target.checked)}
+                disabled={isLand}
+                aria-disabled={isLand}
               />
               Elevator
             </label>
