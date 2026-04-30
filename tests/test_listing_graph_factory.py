@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from src.agents import listing_graph_factory as lgf
+from src.agent import listing_graph_factory as lgf
 
 
 class _FakeResponse:

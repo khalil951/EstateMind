@@ -29,52 +29,52 @@ function titleCase(value: string): string {
     .join(" ");
 }
 
-function translatePropertyTypeToFrench(value: string): string {
+function translatePropertyTypeToDisplay(value: string): string {
   const normalized = normalizeText(value).toLowerCase();
   if (!normalized) {
     return "";
   }
 
   const map: Record<string, string> = {
-    apartment: "Appartement",
-    house: "Maison",
-    land: "Terrain",
-    apartments: "Appartements",
-    houses: "Maisons",
-    lands: "Terrains",
+    apartment: "Appartment",
+    house: "House",
+    land: "Land",
+    apartments: "Appartments",
+    houses: "Houses",
+    lands: "Lands",
     villa: "Villa",
     duplex: "Duplex",
     studio: "Studio",
     commercial: "Commercial",
-    office: "Bureau",
-    bureau: "Bureau",
-    "retail space": "Local commercial",
+    office: "Office",
+    bureau: "Office",
+    "retail space": "Retail Space",
     local: "Local",
-    appartement: "Appartement",
-    maison: "Maison",
-    terrain: "Terrain",
+    appartement: "Appartment",
+    maison: "House",
+    terrain: "Land",
   };
 
   return map[normalized] ?? titleCase(normalized);
 }
 
-function translateTitleToFrench(value: string): string {
+function translateTitleToDisplay(value: string): string {
   let text = normalizeText(value);
   if (!text) {
     return "";
   }
 
   const replacements: Array<[RegExp, string | ((...args: string[]) => string)]> = [
-    [/\bapartment\b/gi, "Appartement"],
-    [/\bhouse\b/gi, "Maison"],
-    [/\bland\b/gi, "Terrain"],
+    [/\bappartement\b/gi, "Appartment"],
+    [/\bmaison\b/gi, "House"],
+    [/\bterrain\b/gi, "Land"],
     [/\bvilla\b/gi, "Villa"],
     [/\bduplex\b/gi, "Duplex"],
     [/\bstudio\b/gi, "Studio"],
     [/\bcommercial\b/gi, "Commercial"],
-    [/\bfor\s+rent\b/gi, "À louer"],
-    [/\bfor\s+sale\b/gi, "À vendre"],
-    [/\brental\b/gi, "Location"],
+    [/\bfor\s+rent\b/gi, "For Rent"],
+    [/\bfor\s+sale\b/gi, "For Sale"],
+    [/\brental\b/gi, "Rental"],
     [/\bs\s*\+\s*(\d+)\b/gi, (_match: string, rooms: string) => `S+${rooms}`],
   ];
 
@@ -122,8 +122,8 @@ function formatCount(value: unknown): string {
 
 function PropertyListingCardComponent({ listing }: PropertyListingCardProps) {
   const view = useMemo(() => {
-    const title = truncateWithEllipsis(translateTitleToFrench(listing.title ?? ""), 68);
-    const propertyType = translatePropertyTypeToFrench(listing.property_type ?? "");
+    const title = truncateWithEllipsis(translateTitleToDisplay(listing.title ?? ""), 68);
+    const propertyType = translatePropertyTypeToDisplay(listing.property_type ?? "");
     const locationParts = [listing.city, listing.governorate, listing.neighborhood]
       .map((part) => titleCase(normalizeText(part)))
       .filter(Boolean);

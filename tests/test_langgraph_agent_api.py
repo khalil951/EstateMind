@@ -6,7 +6,7 @@ from typing import Any
 
 from fastapi.testclient import TestClient
 
-from src.agents.langgraph_agent_api import (
+from src.agent.langgraph_agent_api import (
     BatchListingRequest,
     create_agent_api,
     delete_listing_by_id,
@@ -45,7 +45,7 @@ class DummyGraph:
 
 
 def _seed_listing(db_path: Path, *, listing_id: str, title: str, city: str, price: float) -> None:
-    from src.agents.langgraph_agent_api import _ensure_db_exists
+    from src.agent.langgraph_agent_api import _ensure_db_exists
 
     _ensure_db_exists(db_path)
     conn = __import__("sqlite3").connect(db_path)
@@ -142,7 +142,7 @@ def test_scheduler_run_once_and_status(monkeypatch, tmp_path: Path) -> None:
     db_path = tmp_path / "listings.db"
     graph = DummyGraph()
 
-    import src.agents.langgraph_agent_api as api_module
+    import src.agent.langgraph_agent_api as api_module
 
     monkeypatch.setattr(
         api_module,

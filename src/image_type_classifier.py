@@ -117,7 +117,9 @@ class CLIPImageTypeClassifier:
         self.model_id = model_id
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model = CLIPModel.from_pretrained(model_id).to(self.device) # type: ignore
-        self.processor = CLIPProcessor.from_pretrained(model_id)
+        # Force the slow processor path to keep preprocessing behavior stable
+        # across transformer releases that default CLIP image processors to fast.
+        self.processor = CLIPProcessor.from_pretrained(model_id, use_fast=False)
 
     @torch.no_grad()
     def classify_image(

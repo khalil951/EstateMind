@@ -5,6 +5,8 @@ EstateMind is a Tunisia-focused real-estate valuation platform combining tabular
 It exposes:
 - FastAPI backend for programmatic valuation
 - Streamlit frontend for interactive estimation and reporting
+- Django unified backend scaffold for valuation + listings routing (`django_backend/`)
+- React frontend scaffold for listings and valuation flow (`frontend_react/`)
 - Offline training/evaluation scripts for model refresh and benchmarking
 
 ## 1. End-to-End Pipeline
@@ -42,7 +44,8 @@ It exposes:
   - `src/inference/fallback_model.py` tabular fallback model
   - heuristic estimator inside `src/inference/valuation_service.py` when bundles are unavailable
 
-7. Explainability and uncertainty
+7. Refinement and explainability
+- `src/inference/valuation_service.py` applies sentiment-based price refinement (±3% adjustment range, bounds: 0.96–1.04 factor)
 - `src/explainability/comparables_service.py` retrieves comparable listings
 - `src/explainability/confidence_service.py` computes confidence and uncertainty interval
 - `src/explainability/shap_service.py` returns SHAP or explainability fallback (fallback contributions are estimate-scaled for consistency)
@@ -56,6 +59,8 @@ It exposes:
 ## 2.1 Runtime services
 - Backend API: `src/api.py` (mounted via top-level `api.py` entrypoint)
 - Frontend: `streamlit_app.py`
+- Unified Django API (migration scaffold): `django_backend/`
+- React frontend (migration scaffold): `frontend_react/`
 - Core orchestration: `src/inference/valuation_service.py`
 
 ## 2.2 Data and artifacts
@@ -239,6 +244,67 @@ Run:
 ```powershell
 .\.venv\Scripts\python.exe -m streamlit run src/agents/streamlit_agent_dashboard.py
 ```
+
+## 6.5 Django + React migration scaffold
+
+This repository now includes a first migration slice from Streamlit + FastAPI to React + Django:
+
+- Unified Django API endpoints (valuation + listings + scheduler compatibility):
+  - `django_backend/unified_api/views.py`
+  - includes `POST /listings/add-from-valuation` for the Listings -> Add -> Valuation -> persist flow
+- React frontend routes:
+  - `frontend_react/src/pages/ListingsPage.tsx`
+  - `frontend_react/src/pages/ValuationPage.tsx`
+
+Install dependencies:
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Run Django API (port 8001):
+```powershell
+.\.venv\Scripts\python.exe django_backend\manage.py runserver 127.0.0.1:8001
+```
+
+Run React app (port 5173):
+```powershell
+.\start-frontend.ps1
+```
+
+First-time setup only (if local Node runtime is missing):
+```powershell
+Set-Location .
+New-Item -ItemType Directory -Force -Path ".tools" | Out-Null
+Invoke-WebRequest -Uri "https://nodejs.org/dist/v22.14.0/node-v22.14.0-win-x64.zip" -OutFile ".tools\node-v22.14.0-win-x64.zip"
+Expand-Archive -Path ".tools\node-v22.14.0-win-x64.zip" -DestinationPath ".tools" -Force
+```
+
+Optional API base override for React:
+```powershell
+$env:VITE_API_BASE = "http://127.0.0.1:8001"
+```
+
+Current migration behavior:
+
+- Listings page fetches `/listings`
+- Add button navigates to valuation with prefilled fields
+- Valuation submit calls `/listings/add-from-valuation`
+- Valuation page no longer includes the generic service console section
+- Valuation page exposes full XAI outputs from `/estimate` and `/estimate-upload`:
+  - AI narrative explanation
+  - confidence score/level, uncertainty mode, and uncertainty reasons
+  - confidence interval (`lower_bound`, `upper_bound`)
+  - feature impact entries (`feature`, `pct`, `amount`)
+  - SHAP sequence including baseline/final contributions
+  - comparable listing details (address, price, size, similarity, difference, transaction type)
+  - market context (`avg_m2`, `property_m2`, `delta_pct`, `trend`, `trend_reason`, `demand`)
+  - text/image analysis summaries, vision guidance, and runtime warnings
+  - interactive Recharts visualizations for Feature Impact and SHAP Contributions (hover tooltips, legend, click-to-select highlighting)
+  - interactive Evidence chart for comparables (price bars + similarity line + brush window) linked to comparable cards
+  - an XAI dashboard illustration summary with quick visual meters (confidence signal, interval spread, XAI completeness, evidence quality)
+  - a Generate Summary Report action with downloadable `.txt` output for the current valuation/XAI result
+  - raw JSON payload sections are hidden by default and shown only when clicking Show Raw JSON
+- Backend runs valuation and stores the new listing in SQLite (`artifacts/langgraph_listings.db`)
 
 ## 7. Testing
 

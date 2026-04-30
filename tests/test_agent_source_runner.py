@@ -4,7 +4,7 @@ import csv
 from typing import Any
 from pathlib import Path
 
-from src.agents.agent_source_runner import (
+from src.agent.agent_source_runner import (
     _extract_candidate_links,
     discover_listing_urls,
     export_listings_csv,
@@ -83,7 +83,7 @@ def test_process_sources_attempts_discovered_urls(monkeypatch) -> None:
 
     fake_session = _FakeSession()
 
-    import src.agents.agent_source_runner as runner
+    import src.agent.agent_source_runner as runner
 
     monkeypatch.setattr(runner, "discover_listing_urls", _fake_discover)
     monkeypatch.setattr(runner.requests, "Session", lambda: fake_session)
@@ -145,7 +145,7 @@ def test_process_sources_with_listings_collects_rows(monkeypatch) -> None:
 
     fake_session = _FakeSession()
 
-    import src.agents.agent_source_runner as runner
+    import src.agent.agent_source_runner as runner
 
     monkeypatch.setattr(runner, "discover_listing_urls", _fake_discover)
     monkeypatch.setattr(runner.requests, "Session", lambda: fake_session)

@@ -9,7 +9,11 @@ seaborn
 numpy
 fastapi
 uvicorn
+django
+djangorestframework
+django-cors-headers
 streamlit
+dash
 plotly
 pillow
 transformers
