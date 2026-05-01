@@ -13,9 +13,9 @@ if (-not (Test-Path $managePy)) {
 }
 
 # Optional: accept host and port arguments: default 127.0.0.1:8001
-$host = $args[0]
-if (-not $host) { $host = "127.0.0.1:8001" }
+$bindAddr = $args[0]
+if (-not $bindAddr) { $bindAddr = "127.0.0.1:8001" }
 
 (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& $venvActivate)
 # Run Django development server
-& python $managePy runserver $host
+& python $managePy runserver $bindAddr
