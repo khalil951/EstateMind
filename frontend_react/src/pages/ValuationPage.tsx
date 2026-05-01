@@ -63,7 +63,7 @@ const sampleForm: PropertyRequest = {
 };
 
 type Dict = Record<string, unknown>;
-type XaiTab = "overview" | "drivers" | "evidence" | "risk";
+type XaiTab = "overview" | "drivers" | "evidence" | "risk" | "scenarios" | "nlp";
 type ShapViewMode = "absolute" | "signed";
 type ConflictWarning = {
   selectedPropertyType: string;
@@ -308,6 +308,10 @@ export default function ValuationPage() {
       "XAI Diagnostics",
       `- Feature Impact Rows: ${impacts.length}`,
       `- SHAP Rows: ${shap.length}`,
+      `- Scenario Rows: ${scenarioRows.length}`,
+      `- Recommendation Rows: ${recommendationRows.length}`,
+      `- NLP Sentiment Tokens: ${sentimentTokenRows.length}`,
+      `- NLP Quality Tokens: ${qualityTokenRows.length}`,
       `- Comparable Rows: ${comparables.length}`,
       `- Warning Count: ${warnings.length}`,
       `- Uncertainty Reasons: ${uncertaintyReasons.length}`,
@@ -344,6 +348,13 @@ export default function ValuationPage() {
   const warnings = asStringArray(valuationResult?.warnings);
   const uncertaintyReasons = asStringArray(valuationResult?.uncertainty_reasons);
   const imageAnalysis = asStringArray(valuationResult?.image_analysis);
+  const scenarioRows = asDictArray(valuationResult?.scenarios);
+  const recommendationRows = asDictArray(valuationResult?.recommendations);
+  const sentimentTokenRows = asDictArray(valuationResult?.nlp_sentiment_tokens);
+  const qualityTokenRows = asDictArray(valuationResult?.nlp_quality_tokens);
+  const locationComparison = (valuationResult?.location_comparison && typeof valuationResult.location_comparison === "object")
+    ? (valuationResult.location_comparison as Dict)
+    : null;
   const marketContext = (valuationResult?.market_context && typeof valuationResult.market_context === "object")
     ? (valuationResult.market_context as Dict)
     : null;
@@ -697,6 +708,8 @@ export default function ValuationPage() {
             <button type="button" className={`xai-tab ${activeXaiTab === "drivers" ? "active" : ""}`} onClick={() => setActiveXaiTab("drivers")}>Drivers</button>
             <button type="button" className={`xai-tab ${activeXaiTab === "evidence" ? "active" : ""}`} onClick={() => setActiveXaiTab("evidence")}>Evidence</button>
             <button type="button" className={`xai-tab ${activeXaiTab === "risk" ? "active" : ""}`} onClick={() => setActiveXaiTab("risk")}>Risk and Warnings</button>
+            <button type="button" className={`xai-tab ${activeXaiTab === "scenarios" ? "active" : ""}`} onClick={() => setActiveXaiTab("scenarios")}>Scenarios</button>
+            <button type="button" className={`xai-tab ${activeXaiTab === "nlp" ? "active" : ""}`} onClick={() => setActiveXaiTab("nlp")}>NLP Insights</button>
           </div>
 
           {activeXaiTab === "overview" && <>
@@ -1144,6 +1157,164 @@ export default function ValuationPage() {
               </ul>
             </div>
           )}
+          </>}
+
+          {activeXaiTab === "scenarios" && <>
+          <div className="xai-block">
+            <h4>Scenario Simulator</h4>
+            <p className="muted">Fast what-if recommendations ranked by estimated price uplift.</p>
+            {scenarioRows.length === 0 ? (
+              <p className="muted">No scenario simulations were returned by the backend.</p>
+            ) : (
+              <div className="xai-raw-grid">
+                {scenarioRows.map((row, index) => {
+                  const delta = asLooseNumber(row.price_delta ?? row.predicted_impact_tnd) ?? 0;
+                  const predicted = asLooseNumber(row.predicted_price) ?? 0;
+                  const pct = asLooseNumber(row.delta_percentage ?? row.predicted_impact_pct) ?? 0;
+                  const title = String(row.scenario_name ?? row.title ?? `Scenario ${index + 1}`);
+                  const description = String(row.scenario_description ?? row.description ?? "");
+                  const why = String(row.why ?? row.justification ?? "");
+                  return (
+                    <article className="xai-viz-item" key={`scenario-${index}`}>
+                      <div className="xai-viz-head">
+                        <span>{title}</span>
+                        <strong>{delta >= 0 ? "+" : ""}{delta.toLocaleString()} TND ({pct >= 0 ? "+" : ""}{pct.toFixed(2)}%)</strong>
+                      </div>
+                      <div className="xai-summary-grid">
+                        <div className="xai-kpi">
+                          <span>Before</span>
+                          <strong>{estimatedPrice.toLocaleString()} TND</strong>
+                        </div>
+                        <div className="xai-kpi">
+                          <span>After</span>
+                          <strong>{predicted.toLocaleString()} TND</strong>
+                        </div>
+                        <div className="xai-kpi">
+                          <span>Confidence</span>
+                          <strong>{String(row.confidence ?? "N/A")}</strong>
+                        </div>
+                      </div>
+                      <p className="muted">{description}</p>
+                      {why && <p className="muted">Why: {why}</p>}
+                      <p className="muted">Changes: {JSON.stringify(row.modified_features ?? {}, null, 0)}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <div className="xai-block">
+            <h4>Smart Recommendations</h4>
+            {recommendationRows.length === 0 ? (
+              <p className="muted">No recommendations were returned.</p>
+            ) : (
+              <ul className="xai-list">
+                {recommendationRows.map((row, index) => {
+                  const title = String(row.title ?? row.scenario_name ?? `Recommendation ${index + 1}`);
+                  const impactTnd = asLooseNumber(row.predicted_impact_tnd ?? row.price_delta) ?? 0;
+                  const impactPct = asLooseNumber(row.predicted_impact_pct ?? row.delta_percentage) ?? 0;
+                  return (
+                    <li key={`recommendation-${index}`}>
+                      <div>
+                        <strong>{title}</strong>
+                        <p className="muted" style={{ margin: "0.25rem 0 0" }}>{String(row.justification ?? row.description ?? "")}</p>
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <strong>{impactTnd >= 0 ? "+" : ""}{impactTnd.toLocaleString()} TND</strong>
+                        <p className="muted" style={{ margin: 0 }}>{impactPct >= 0 ? "+" : ""}{impactPct.toFixed(2)}%</p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+          </>}
+
+          {activeXaiTab === "nlp" && <>
+          <div className="xai-block">
+            <h4>Word-Level Sentiment Contributions</h4>
+            {sentimentTokenRows.length === 0 ? (
+              <p className="muted">No sentiment tokens were returned.</p>
+            ) : (
+              <div className="xai-viz-list">
+                {sentimentTokenRows.map((row, index) => {
+                  const contribution = asLooseNumber(row.contribution) ?? 0;
+                  const magnitude = asLooseNumber(row.magnitude) ?? Math.abs(contribution);
+                  return (
+                    <div className="xai-viz-item" key={`sentiment-token-${index}`} title={String(row.explanation ?? "")}>
+                      <div className="xai-viz-head">
+                        <span>{String(row.token ?? `token-${index}`)}</span>
+                        <strong>{contribution >= 0 ? "+" : ""}{contribution.toFixed(2)}</strong>
+                      </div>
+                      <div className="xai-viz-track">
+                        <span className={`xai-viz-fill ${contribution >= 0 ? "positive" : "negative"}`} style={{ width: `${Math.max(12, Math.min(100, magnitude * 100))}%` }} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <div className="xai-block">
+            <h4>Word-Level Quality and Marketing Signals</h4>
+            {qualityTokenRows.length === 0 ? (
+              <p className="muted">No quality tokens were returned.</p>
+            ) : (
+              <div className="xai-viz-list">
+                {qualityTokenRows.map((row, index) => {
+                  const contribution = asLooseNumber(row.contribution) ?? 0;
+                  const magnitude = asLooseNumber(row.magnitude) ?? Math.abs(contribution);
+                  return (
+                    <div className="xai-viz-item" key={`quality-token-${index}`} title={String(row.explanation ?? "")}>
+                      <div className="xai-viz-head">
+                        <span>{String(row.token ?? `token-${index}`)} <span className="muted">({String(row.aspect ?? "quality")})</span></span>
+                        <strong>{contribution >= 0 ? "+" : ""}{contribution.toFixed(2)}</strong>
+                      </div>
+                      <div className="xai-viz-track">
+                        <span className={`xai-viz-fill ${contribution >= 0 ? "positive" : "negative"}`} style={{ width: `${Math.max(12, Math.min(100, magnitude * 100))}%` }} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <div className="xai-block">
+            <h4>Location Sentiment Comparison</h4>
+            {locationComparison ? (
+              <>
+                <div className="xai-summary-grid">
+                  <div className="xai-kpi">
+                    <span>Location Sentiment</span>
+                    <strong>{asLooseNumber(locationComparison.location_sentiment)?.toFixed(2) ?? "N/A"}</strong>
+                  </div>
+                  <div className="xai-kpi">
+                    <span>Percentile</span>
+                    <strong>{asLooseNumber(locationComparison.location_percentile)?.toFixed(1) ?? "N/A"}%</strong>
+                  </div>
+                  <div className="xai-kpi">
+                    <span>Benchmark</span>
+                    <strong>{String(locationComparison.location_sentiment_label ?? "neutral")}</strong>
+                  </div>
+                </div>
+                <p className="muted" style={{ marginTop: "0.6rem" }}>{String(locationComparison.benchmark_message ?? "")}</p>
+                {Array.isArray(locationComparison.similar_locations) && locationComparison.similar_locations.length > 0 && (
+                  <div className="xai-comparables-grid">
+                    {(locationComparison.similar_locations as string[]).map((item, index) => (
+                      <article className="xai-comparable-card active" key={`location-${index}`}>
+                        <h5>{item}</h5>
+                        <p>Comparable benchmark location</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : <p className="muted">No location comparison data returned.</p>}
+          </div>
           </>}
 
           {activeXaiTab === "risk" && <>

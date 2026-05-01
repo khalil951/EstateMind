@@ -7,12 +7,14 @@ from typing import Any
 from src.explainability.comparables_service import ComparablesService
 from src.explainability.confidence_service import ConfidenceService
 from src.explainability.explanation_service import ExplanationService
+from src.explainability.scenario_simulator import ScenarioSimulator
 from src.explainability.shap_service import ShapService
 from src.inference.feature_fusion import fuse_features
 from src.inference.fallback_model import FallbackTabularModelService
 from src.inference.model_registry import ModelRegistry
 from src.inference.request_mapper import map_request
 from src.nlp.description_analysis import DescriptionAnalysisService
+from src.nlp.nlp_explainability import NLPExplainabilityService
 from src.nlp.location_sentiment import LocationSentimentService
 from src.nlp.sentiment_service import DescriptionSentimentService
 from src.reporting.response_builder import build_response
@@ -37,6 +39,8 @@ class ValuationService:
         self.confidence = ConfidenceService()
         self.shap = ShapService()
         self.explanation = ExplanationService()
+        self.scenario_simulator = ScenarioSimulator()
+        self.nlp_explainability = NLPExplainabilityService()
 
     def _heuristic_estimate(self, mapped: dict[str, Any], market_context: dict[str, Any]) -> tuple[int, int, list[str]]:
         base_per_m2 = max(int(market_context.get("avg_m2", 1450)), 1)
@@ -217,6 +221,24 @@ class ValuationService:
             explanation_mode=explanation_mode,
             warnings=all_warnings,
         )
+        scenario_rows, recommendation_rows = self.scenario_simulator.generate(
+            mapped=mapped,
+            estimated_price=estimated_price,
+            market_context=market_context,
+            features_impact=features_impact,
+            comparables=comparables,
+            confidence=confidence,
+            description_analysis=description,
+            description_sentiment=description_sentiment,
+            location_sentiment=location_sentiment,
+        )
+        nlp_explainability = self.nlp_explainability.analyze(
+            mapped.get("description", ""),
+            description_analysis=description,
+            description_sentiment=description_sentiment,
+            location_sentiment=location_sentiment,
+            comparables=comparables,
+        )
         text_analysis = {
             "description_quality": description["description_quality"],
             "description_sentiment": description_sentiment["description_sentiment"],
@@ -225,6 +247,8 @@ class ValuationService:
             "location_sentiment_label": location_sentiment["sentiment_label"],
             "marketing_effectiveness": description["marketing_effectiveness"],
             "key_phrases": description["key_phrases"],
+            "token_count": description["token_count"],
+            "description_score": description["description_score"],
         }
 
         return build_response(
@@ -238,6 +262,11 @@ class ValuationService:
             text_analysis=text_analysis,
             market_context=market_context,
             shap=shap,
+            scenarios=scenario_rows,
+            recommendations=recommendation_rows,
+            nlp_sentiment_tokens=nlp_explainability["description_sentiment_tokens"],
+            nlp_quality_tokens=nlp_explainability["description_quality_tokens"],
+            location_comparison=nlp_explainability["location_comparison"],
             prediction_mode=prediction_mode,
             explanation_mode=explanation_mode,
             sentiment_mode=description_sentiment["sentiment_mode"],
