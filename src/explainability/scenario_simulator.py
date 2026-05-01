@@ -172,13 +172,24 @@ class ScenarioSimulator:
         confidence: float,
         location_sentiment: dict[str, Any],
         market_context: dict[str, Any],
-    ) -> ScenarioCard:
+    ) -> ScenarioCard | None:
+        """Generate location improvement scenario only if market trend data is available.
+        
+        This ensures we only propose relocation when we have evidence (trend, comparable locations)
+        to substantiate the claim that a stronger area would improve value.
+        """
+        # Gate on market_context.trend and demand availability.
+        trend = market_context.get("trend")
+        demand = market_context.get("demand")
+        if not trend or not demand:
+            return None  # Insufficient market context to propose location improvement.
+        
         sentiment = float(location_sentiment.get("sentiment", 0.5))
         target = max(sentiment + 0.12, 0.72)
         boost = int(round(estimated_price * max(target - sentiment, 0.0) * 0.1))
         why = (
             f"Properties in stronger-demand neighborhoods generally command higher values. "
-            f"The current location sentiment is {sentiment:.2f} and the market trend is {market_context.get('trend', 'stable').lower()}."
+            f"The current location sentiment is {sentiment:.2f} and the market trend is {str(trend).lower()}."
         )
         return self._scenario(
             name="Improve location profile",
@@ -215,7 +226,11 @@ class ScenarioSimulator:
         if condition is not None:
             scenarios.append(condition)
         scenarios.append(self._description_scenario(estimated_price, base_confidence, description_analysis))
-        scenarios.append(self._location_scenario(mapped, estimated_price, base_confidence, location_sentiment, market_context))
+        # Note: Transaction Type scenario is logically inconsistent (why suggest changing sale to rent?).
+        # Intentionally excluded from scenario generation.
+        location = self._location_scenario(mapped, estimated_price, base_confidence, location_sentiment, market_context)
+        if location is not None:
+            scenarios.append(location)
 
         if features_impact:
             strongest = max(features_impact, key=lambda item: abs(float(item.get("amount", 0) or 0)))
