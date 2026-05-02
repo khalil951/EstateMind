@@ -12,9 +12,9 @@ import numpy as np
 import pandas as pd
 
 try:
-    from src.sentiment_template_generator import synthesize_sentiment_metadata
+    from src.scripts.sentiment_template_generator import synthesize_sentiment_metadata
 except ModuleNotFoundError:  # pragma: no cover
-    from sentiment_template_generator import synthesize_sentiment_metadata
+    from src.scripts.sentiment_template_generator import synthesize_sentiment_metadata
 
 try:
     from transformers import pipeline

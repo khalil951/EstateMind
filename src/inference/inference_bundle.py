@@ -154,6 +154,19 @@ class _ServingProcessor:
             for _, row in city_geo.iterrows()
         }
 
+        # Build governorate centroids as fallback for unknown cities
+        gov_geo = (
+            self.reference_df.dropna(subset=["governorate", "latitude", "longitude"])
+            .assign(governorate=lambda df: df["governorate"].map(_normalize_text_key))
+            .groupby("governorate", dropna=True)[["latitude", "longitude"]]
+            .median()
+            .reset_index()
+        )
+        self.gov_geo_lookup = {
+            str(row["governorate"]): (float(row["latitude"]), float(row["longitude"]))
+            for _, row in gov_geo.iterrows()
+        }
+
         self.quantiles: dict[str, tuple[float, float]] = {}
         for col in ("price_tnd", "surface_m2"):
             if col in self.reference_df.columns and self.reference_df[col].notna().any():
@@ -238,11 +251,13 @@ class _ServingProcessor:
             warnings.append("governorate_normalization_applied")
 
         if city_key not in self.city_geo_lookup and frame.get("latitude", pd.Series([np.nan])).isna().iat[0]:
-            warnings.append("geo_lookup_missing")
-            if city_key:
-                ood_flags.append("unknown_city_data_coverage")
-            else:
-                ood_flags.append("unknown_city_missing_input")
+            # Check if we can fall back to governorate centroid before flagging as missing
+            if not (gov_key and gov_key in self.gov_geo_lookup):
+                warnings.append("geo_lookup_missing")
+                if city_key:
+                    ood_flags.append("unknown_city_data_coverage")
+                else:
+                    ood_flags.append("unknown_city_missing_input")
         if "surface_m2" in self.quantiles:
             lo, hi = self.quantiles["surface_m2"]
             surface = float(frame["surface_m2"].iat[0]) #type:ignore
@@ -255,6 +270,9 @@ class _ServingProcessor:
             frame["longitude"] = np.nan
         if pd.isna(frame["latitude"].iat[0]) or pd.isna(frame["longitude"].iat[0]):
             coords = self.city_geo_lookup.get(city_key)
+            if not coords and gov_key:
+                # Fallback to governorate centroid if city not found
+                coords = self.gov_geo_lookup.get(gov_key)
             if coords:
                 frame.at[0, "latitude"] = coords[0]
                 frame.at[0, "longitude"] = coords[1]

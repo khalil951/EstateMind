@@ -79,7 +79,7 @@ class PropertyRequest(BaseModel):
 
     property_type: Literal["", "Terrain", "Maison", "Appartement"] = ""
     governorate: str
-    city: str
+    city: str = Field(min_length=1, description="Required city name")
     neighborhood: str = ""
     size_m2: float = Field(gt=10)
     bedrooms: int = 0
@@ -173,7 +173,7 @@ def estimate_price_upload(
             image_refs.append(str(target))
 
         payload = PropertyRequest(
-            property_type=property_type,
+            property_type=property_type, # type: ignore
             governorate=governorate,
             city=city,
             neighborhood=neighborhood,

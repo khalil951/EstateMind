@@ -24,7 +24,7 @@ except (ImportError, ModuleNotFoundError):  # pragma: no cover
     resnet50 = None  # type: ignore[assignment]
 
 try:
-    from src.image_type_classifier import CLIPImageTypeClassifier
+    from src.scripts.image_type_classifier import CLIPImageTypeClassifier
 except ModuleNotFoundError:  # pragma: no cover
     CLIPImageTypeClassifier = None  # type: ignore[assignment]
 
