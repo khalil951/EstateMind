@@ -1,0 +1,21 @@
+{
+  "model_name": "resnet50",
+  "label_space": "property_type",
+  "classes": [
+    {
+      "id": 0,
+      "label": "terrain",
+      "description": "Notebook fallback property-type class: Terrain"
+    },
+    {
+      "id": 1,
+      "label": "maison",
+      "description": "Notebook fallback property-type class: Maison"
+    },
+    {
+      "id": 2,
+      "label": "appartement",
+      "description": "Notebook fallback property-type class: Appartement"
+    }
+  ]
+}

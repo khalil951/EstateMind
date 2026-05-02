@@ -16,8 +16,13 @@ desktop.ini
 .playwright/
 data/pw_bigdatis_profile/
 
-# Heavy/generated artifacts and model/cache outputs
-artifacts/
+# Heavy/generated artifacts and model/cache outputs (but keep models/)
+artifacts/*
+!artifacts/models/
+artifacts/models/*
+!artifacts/models/*.pt
+!artifacts/models/*.json
+!artifacts/models/*.labels.json
 
 # Optional local model/data caches
 **/.ipynb_checkpoints/
