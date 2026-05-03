@@ -19,10 +19,15 @@ data/pw_bigdatis_profile/
 # Heavy/generated artifacts and model/cache outputs (but keep models/)
 artifacts/*
 !artifacts/models/
-artifacts/models/*
-!artifacts/models/*.pt
-!artifacts/models/*.json
-!artifacts/models/*.labels.json
+!artifacts/models/**
+!artifacts/models/models_estateprocessor/
+!artifacts/models/models_estateprocessor/**
+!artifacts/models/fallback_tabular/
+!artifacts/models/fallback_tabular/**
+!artifacts/models/image_property_type_fallback.pt
+!artifacts/models/image_property_type_fallback.labels.json
+!artifacts/models/tfidf_char_sentiment.joblib
+
 
 # Optional local model/data caches
 **/.ipynb_checkpoints/

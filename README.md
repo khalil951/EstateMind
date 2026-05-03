@@ -65,7 +65,13 @@ It exposes:
 
 ## 2.2 Data and artifacts
 - Preprocessed data: `data/csv/preprocessed/final_listings_preprocessed.csv`
-- Trained models: `artifacts/models/models_estateprocessor/`
+- Version-controlled evaluation/runtime models:
+  - `artifacts/models/models_estateprocessor/`
+  - `artifacts/models/fallback_tabular/`
+  - `artifacts/models/image_property_type_fallback.pt`
+  - `artifacts/models/image_property_type_fallback.labels.json`
+  - `artifacts/models/tfidf_char_sentiment.joblib`
+- Training checkpoints and notebook exports are kept out of GitHub to avoid pushing large intermediate artifacts.
 - Training reports: `artifacts/reports/ml_reports/`
 - NLP reports: `artifacts/reports/nlp_sentiment/`
 
